@@ -6,7 +6,7 @@
 
 
         <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}"></script>
+<script src="{{URL:: asset('js/app.js') }}"></script>
 <!-- Javascript -->
 <script src="{{ URL::asset('app/assets/js/jquery-1.11.1.min.js')}}"></script>
 <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
