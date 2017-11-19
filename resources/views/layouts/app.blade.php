@@ -15,7 +15,7 @@
 
 <script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
 <script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
-
+<script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
 <!--[if lt IE 10]>
 <script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
 <![endif]-->
