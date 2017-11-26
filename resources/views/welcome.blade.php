@@ -1,95 +1,55 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('user.home')
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+@section('nav')
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
+                <!-- Collapsed Hamburger -->
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                    <span class="sr-only">Toggle Navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-            .full-height {
-                height: 100vh;
-            }
+                <!-- Branding Image -->
+                <a href="#" class="navbar-left">
+                    <img src="{{ URL::asset('app/assets/img/logo2.png')}}">
+                </a>
+            </div>
 
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
+            <div class="collapse navbar-collapse" id="top-navbar-1">
+                <!-- Left Side Of Navbar -->
+                <ul class="nav navbar-nav">
+                    &nbsp;
+                </ul>
 
-            .position-ref {
-                position: relative;
-            }
+                <!-- Right Side Of Navbar -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a  href="#services">Services</a></li>
+                    <li><a  href="#portfolio">Work</a></li>
+                    <li><a  href="#testimonials">Clients</a></li>
+                    <li><a  href="#footer">Contact</a></li>
 
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
+                    @if (Route::has('login'))
 
-            .content {
-                text-align: center;
-            }
+                            @if (Auth::check())
+                               <li> <a href="{{ url('/home') }}">Home</a></li>
+                            @else
+                                <li><a href="{{ url('/login') }}">Login</a></li>
+                                <li><a href="{{ url('/register') }}">Register</a></li>
+                            @endif
 
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @if (Auth::check())
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ url('/login') }}">Login</a>
-                        <a href="{{ url('/register') }}">Register</a>
                     @endif
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+
+                </ul>
             </div>
         </div>
-    </body>
-</html>
+    </nav>
+
+@endsection
+
