@@ -14,14 +14,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
 
-
-
-
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">
-    <link rel="stylesheet" href="{{ URL::asset('app/assets/bootstrap/css/bootstrap.min.css')}}" >
-    <link rel="stylesheet" href="{{ URL::asset('app/assets/font-awesome/css/font-awesome.min.css')}}" >
-    <link rel="stylesheet" href="{{ URL::asset('app/assets/css/animate.css')}}" >
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/css/animate.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/form-elements.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
@@ -36,12 +33,14 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="{{ URL::asset('app/assets/ico/favicon.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ URL::asset('app/assets/ico/apple-touch-icon-144-precomposed.png')}}" >
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{{ URL::asset('app/assets/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ URL::asset('app/assets/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{ URL::asset('app/assets/ico/apple-touch-icon-57-precomposed.png')}}">
-
-
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="{{ URL::asset('app/assets/ico/apple-touch-icon-144-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="{{ URL::asset('app/assets/ico/apple-touch-icon-114-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="{{ URL::asset('app/assets/ico/apple-touch-icon-72-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed"
+          href="{{ URL::asset('app/assets/ico/apple-touch-icon-57-precomposed.png')}}">
 
 
 </head>

@@ -1,4 +1,3 @@
-
 @extends('layouts.head')
 
 
@@ -8,7 +7,8 @@
             <div class="navbar-header">
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#app-navbar-collapse">
                     <span class="sr-only">Toggle Navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -29,10 +29,10 @@
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a  href="#services">Services</a></li>
-                    <li><a  href="#portfolio">Work</a></li>
-                    <li><a  href="#testimonials">Clients</a></li>
-                    <li><a  href="#footer">Contact</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Work</a></li>
+                    <li><a href="#testimonials">Clients</a></li>
+                    <li><a href="#footer">Contact</a></li>
 
                     <!-- Authentication Links -->
                     @if (Auth::guest())
@@ -40,7 +40,8 @@
                         <li><a href="{{ route('register') }}">Register</a></li>
                     @else
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
+                               aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
@@ -52,7 +53,8 @@
                                         Logout
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                          style="display: none;">
                                         {{ csrf_field() }}
                                     </form>
                                 </li>
@@ -63,33 +65,29 @@
             </div>
         </div>
     </nav>
-@endsection
+    @endsection
 
 
-
-@section('body')
-
+    @section('body')
 
 
+    @yield('content')
 
 
-@yield('content')
+            <!-- Scripts -->
+    <script src="{{URL:: asset('js/app.js') }}"></script>
+    <!-- Javascript -->
+    <script src="{{ URL::asset('app/assets/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ URL::asset('app/assets/js/jquery.backstretch.min.js')}}"></script>
+    <script src="{{ URL::asset('app/assets/js/wow.min.js')}}"></script>
 
-
-        <!-- Scripts -->
-<script src="{{URL:: asset('js/app.js') }}"></script>
-<!-- Javascript -->
-<script src="{{ URL::asset('app/assets/js/jquery-1.11.1.min.js')}}"></script>
-<script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
-<script src="{{ URL::asset('app/assets/js/jquery.backstretch.min.js')}}"></script>
-<script src="{{ URL::asset('app/assets/js/wow.min.js')}}"></script>
-
-<script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
-<script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
-<script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
-<!--[if lt IE 10]>
-<script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
-<![endif]-->
+    <script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
+    <script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
+    <script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
+    <!--[if lt IE 10]>
+    <script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
+    <![endif]-->
 
 
 
