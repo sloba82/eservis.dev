@@ -65,10 +65,10 @@
             </div>
         </div>
     </nav>
-    @endsection
+@endsection
 
 
-    @section('body')
+@section('body')
 
 
     @yield('content')
