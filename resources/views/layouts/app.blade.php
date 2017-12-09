@@ -69,12 +69,22 @@
 
 
 @section('body')
-
-
     @yield('content')
 
+   <!-- Footer -->
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
 
-            <!-- Scripts -->
+                logo
+                <div class="col-sm-12 footer-bottom">
+                    <a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
     <script src="{{URL:: asset('js/app.js') }}"></script>
     <!-- Javascript -->
     <script src="{{ URL::asset('app/assets/js/jquery-1.11.1.min.js')}}"></script>
@@ -84,12 +94,11 @@
 
     <script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
+    <script src="{{ URL::asset('app/assets/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
     <!--[if lt IE 10]>
     <script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
     <![endif]-->
-
-
 
     </body>
     </html>

@@ -17,10 +17,12 @@
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/bootstrap/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/bootstrap/css/bootstrap-responsive.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/animate.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/form-elements.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/css/datepicker.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
