@@ -73,12 +73,10 @@
 
    <!-- Footer -->
     <footer>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
+                <div id="logoImages">
 
-                logo
-                <div class="col-sm-12 footer-bottom">
-                    <a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
                 </div>
             </div>
         </div>

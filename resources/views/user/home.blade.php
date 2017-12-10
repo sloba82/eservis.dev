@@ -14,22 +14,22 @@
                         <a href="index.html"></a>
                     </div>
                     <h1 class="wow fadeInLeftBig">Auto servis Ljuba ms</h1>
-
+                    <img src="{{URL::asset('app/assets/img/serviceicons2.png')}}">
                     <div class="description wow fadeInLeftBig">
                         <p class="smallTmargine">
                            <h3>Servis za auto elektriku</h3>
                         </p>
                     </div>
                     <div class="top-big-link wow fadeInUp">
-                        <a id="setappointment" class="btn btn-link-1" href="#">Zakaži servis</a>
-                        <a class="btn btn-link-2" href="#services">Proveri status vozila</a>
+                        <a id="setappointment" class="btn btn-warning btn-lg" href="#">Zakaži servis</a>
+                        <a class="btn btn-info btn-lg" href="#services">Proveri status vozila</a>
                     </div>
                 </div>
             </div>
          </div>
     </div>
 </div>
-s
+
 <div id="appoitment">
     <div class="container">
         <div class="row">
