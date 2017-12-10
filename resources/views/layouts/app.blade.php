@@ -84,6 +84,7 @@
         </div>
     </footer>
 
+
     <!-- Scripts -->
     <script src="{{URL:: asset('js/app.js') }}"></script>
     <!-- Javascript -->
@@ -91,15 +92,21 @@
     <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/jquery.backstretch.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/wow.min.js')}}"></script>
-
     <script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
-    <script src="{{ URL::asset('app/assets/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
     <!--[if lt IE 10]>
     <script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
     <![endif]-->
 
-    </body>
-    </html>
+    <!-- Datatimepicker -->
+    <script src="{{ URL::asset('app/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
+    <!--End Datatimepicker -->
+
+</body>
+
+
+
+
+</html>
 @endsection
