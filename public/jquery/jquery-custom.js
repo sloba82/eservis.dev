@@ -5,15 +5,18 @@ $(function() {
     });
 
     //form datepicker
-
     $('#datepicker').datepicker( {
         format: 'dd/mm/yyyy',
         startDate: '-3d',
         language: 'en'
-    }
+        }
     );
 
+    $( "#setappointment" ).click(function() {
+        $( "#topContent" ).hide('fast');
+        $( "#appoitment" ).show();
 
+    });
 
 
 

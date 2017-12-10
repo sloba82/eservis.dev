@@ -634,3 +634,7 @@ footer h3 {
 .well-title {
 	margin-bottom: 40px;
 }
+
+#appoitment {
+	display: none;
+}
