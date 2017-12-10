@@ -29,10 +29,7 @@
          </div>
     </div>
 </div>
-
-<!--------- forma under construction ----------->
-
-
+s
 <div id="appoitment">
     <div class="container">
         <div class="row">
@@ -64,19 +61,14 @@
                                     <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
                                 </div>
                             </div>
-
                             <!-- datepicker -->
                             <div class="col-md-6">
-
                                 <div class="form-group">
                                     <label class="control-label" for="datetimepicker">Zakazi datum i vreme servisa</label>
                                     <input id="datetimepicker" type="text" class="form-control input-md" >
 
                                 </div>
                             <!-- datepicker -->
-
-
-
                             </div>
                             <!-- Select Basic -->
                             <div class="col-md-12">
@@ -93,29 +85,29 @@
                             </div>
                         </div>
                     </form>
-                    <!-- form end -->
                 </div>
             </div>
+
             <div class="col-md-6">
                 <div class="well-block">
                     <div class="well-title">
-                        <h2>Zasto kod nas servisirati vozilo</h2>
+                        <h2>Zasto servisirati vozilo kod nas?</h2>
                     </div>
                     <div class="feature-block">
                         <div class="feature feature-blurb-text">
-                            <h4 class="feature-title">24/7 Hours Available</h4>
+                            <h4 class="feature-title">Uvek na raspolaganju</h4>
                             <div class="feature-content">
                                 <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
                             </div>
                         </div>
                         <div class="feature feature-blurb-text">
-                            <h4 class="feature-title">Experienced Staff Available</h4>
+                            <h4 class="feature-title">Iskusno osoblje</h4>
                             <div class="feature-content">
                                 <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
                             </div>
                         </div>
                         <div class="feature feature-blurb-text">
-                            <h4 class="feature-title">Low Price & Fees</h4>
+                            <h4 class="feature-title">Povoljne cene usluga</h4>
                             <div class="feature-content">
                                 <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
                             </div>
@@ -126,11 +118,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-<!--------- end forma under construction ----------->
 
 <div id="services">
     <div class="container-fluid" style="background-color: #f4f4f4; ">
