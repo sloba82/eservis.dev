@@ -22,15 +22,14 @@ h1, h2 {
     font-weight: 300;
     color: #555;
     line-height: 50px;
-    font-style: italic;
+
 }
 
 h3 {
 	font-size: 22px;
     font-weight: 300;
-    color: #555;
     line-height: 30px;
-    font-style: italic;
+
 }
 
 img { max-width: 100%; }
@@ -637,4 +636,8 @@ footer h3 {
 
 #appoitment {
 	display: none;
+}
+
+.smallTmargine {
+	margin-top: 5px;
 }

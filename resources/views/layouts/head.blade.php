@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/bootstrap/css/bootstrap-responsive.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/font-awesome/css/font-awesome.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/animate.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('app/assets/css/form-elements.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/datetimepicker/jquery.datetimepicker.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">

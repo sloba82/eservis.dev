@@ -16,8 +16,8 @@
                     <h1 class="wow fadeInLeftBig">Auto servis Ljuba ms</h1>
 
                     <div class="description wow fadeInLeftBig">
-                        <p>
-                            ovde neki tekst
+                        <p class="smallTmargine">
+                           <h3>Servis za auto elektriku</h3>
                         </p>
                     </div>
                     <div class="top-big-link wow fadeInUp">
@@ -46,8 +46,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label" for="name">Name</label>
-                                    <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
+                                    <label class="control-label" for="name">Ime</label>
+                                    <input id="name" name="name" type="text" placeholder="Ime" class="form-control input-md">
+                                </div>
+                            </div>
+                            <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="date">Prezime</label>
+                                    <input id="date" name="date" type="text" placeholder="Prezime" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Text input-->
@@ -57,28 +64,16 @@
                                     <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
                                 </div>
                             </div>
-                            <!-- Text input-->
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label class="control-label" for="date">Preferred Date</label>
-                                    <input id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md">
-                                </div>
-                            </div>
-                            <!-- Select Basic -->
+
+                            <!-- datepicker -->
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <div class="input-append date" id="datepicker"  data-date-format="dd-mm-yyyy">
+                                    <label class="control-label" for="datetimepicker">Zakazi datum i vreme servisa</label>
+                                    <input id="datetimepicker" type="text" class="form-control input-md" >
 
-                                        <input id="pic" class="span2" size="16" type="text" value="">
-                                        <div class="input-group-addon">
-                                            <span class="glyphicon glyphicon-th"></span>
-                                        </div>
-
-                                        <span class="add-on"><i class="icon-th"></i></span>
-                                    </div>
                                 </div>
-
+                            <!-- datepicker -->
 
 
 
@@ -86,19 +81,14 @@
                             <!-- Select Basic -->
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label class="control-label" for="appointmentfor">Appointment For</label>
-                                    <select id="appointmentfor" name="appointmentfor" class="form-control">
-                                        <option value="Service#1">Service#1</option>
-                                        <option value="Service#2">Service#2</option>
-                                        <option value="Service#3">Service#3</option>
-                                        <option value="Service#4">Service#4</option>
-                                    </select>
+                                    <label for="opiskvara">Opis kvara</label>
+                                    <textarea class="form-control" id="opiskvara" rows="3"></textarea>
                                 </div>
                             </div>
                             <!-- Button -->
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-default">Make An Appointment</button>
+                                    <button id="singlebutton" name="singlebutton" class="btn btn-success">Zakazi servis</button>
                                 </div>
                             </div>
                         </div>
