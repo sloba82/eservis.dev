@@ -19,5 +19,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/appoitment', 'AppoitmentController@create');
+Route::get('/appoitment', 'AppoitmentController@create');
 

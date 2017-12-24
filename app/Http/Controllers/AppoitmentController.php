@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Appoitment;
 
 class AppoitmentController extends Controller
 {
@@ -24,6 +25,19 @@ class AppoitmentController extends Controller
     public function create()
     {
         //
+        $Appopitment = new Appoitment([
+            'user_id' => 1,
+            'name'=> 'test',
+            'last_name'=> 'test',
+            'email'=> 'test',
+            'phone'=> 'test',
+            'veh_make'=> 'test',
+            'appoitment'=> '2017-12-12 00:00:00',
+            'description'=> 'test',
+
+        ]);
+
+        $Appopitment->save();
 
     }
 
