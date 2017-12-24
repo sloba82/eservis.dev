@@ -39,4 +39,13 @@ $(function() {
     );
     //end datepicker
 
+    //form appoitment get values
+/*    $( "#appoitment" ).submit(function( event ) {
+        console.log( $( this ).serializeArray() );
+
+    });*/
+
+    //end form values
+
+
 });
