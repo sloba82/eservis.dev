@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
 
+
 @section('nav')
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">

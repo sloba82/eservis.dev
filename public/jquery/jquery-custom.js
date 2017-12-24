@@ -1,13 +1,17 @@
 $(function() {
 
+    //User logout
     $( ".dropdown-toggle" ).bind( "click", function() {
        $(".dropdown-menu").css('display', 'block');
     });
+    $(".dropdown-menu").bind( "mouseleave", function() {
+        $(this).hide('fast');
+    });
 
+    //Show hide apoitment form
     $( "#setappointment" ).click(function() {
         $( "#topContent" ).hide('fast');
         $( "#appoitment" ).show();
-
     });
 
     //datepicker

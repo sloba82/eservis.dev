@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 
+
 @section('content')
 
 <!-- Top content -->
@@ -21,7 +22,7 @@
                         </p>
                     </div>
                     <div class="top-big-link wow fadeInUp">
-                        <a id="setappointment" class="btn btn-warning btn-lg" href="#">Zakaûi servis</a>
+                        <a id="setappointment" class="btn btn-warning btn-lg" href="#">Zaka≈æi servis</a>
                         <a class="btn btn-info btn-lg" href="#services">Proveri status vozila</a>
                     </div>
                 </div>
@@ -36,7 +37,7 @@
             <div class="col-md-6">
                 <div class="well-block">
                     <div class="well-title">
-                        <h2>Zakaûi servis vozila</h2>
+                        <h2>Zaka≈æi servis vozila</h2>
                     </div>
                     <form>
                         <!-- Form start -->
@@ -50,8 +51,8 @@
                             <!-- Text input-->
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label class="control-label" for="date">Prezime</label>
-                                    <input id="date" name="date" type="text" placeholder="Prezime" class="form-control input-md">
+                                    <label class="control-label" for="last_name">Prezime</label>
+                                    <input id="last_name" name="last_name" type="text" placeholder="Prezime" class="form-control input-md">
                                 </div>
                             </div>
                             <!-- Text input-->
@@ -61,6 +62,25 @@
                                     <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
                                 </div>
                             </div>
+
+
+                            <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="date">Mobilni telefon</label>
+                                    <input id="date" name="date" type="number" placeholder="Mobilni telefon" class="form-control input-md">
+                                </div>
+                            </div>
+
+
+                             <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="vhe_make">Model vozila</label>
+                                    <input id="vhe_make" name="vhe_make" type="text" placeholder="Model vozila" class="form-control input-md">
+                                </div>
+                            </div>
+
                             <!-- datepicker -->
                             <div class="col-md-6">
                                 <div class="form-group">
@@ -68,8 +88,9 @@
                                     <input id="datetimepicker" type="text" class="form-control input-md" >
 
                                 </div>
-                            <!-- datepicker -->
                             </div>
+                            <!-- datepicker -->
+
                             <!-- Select Basic -->
                             <div class="col-md-12">
                                 <div class="form-group">
