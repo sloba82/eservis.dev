@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Appoitment;
+use Illuminate\Support\Facades\Auth;
 
 class AppoitmentController extends Controller
 {
@@ -25,8 +26,15 @@ class AppoitmentController extends Controller
     public function create()
     {
         //
+
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+        }else{
+            $user_id = 0;
+        }
+
         $Appopitment = new Appoitment([
-            'user_id' => 1,
+            'user_id' => $user_id,
             'name'=> 'test',
             'last_name'=> 'test',
             'email'=> 'test',
@@ -50,6 +58,10 @@ class AppoitmentController extends Controller
     public function store(Request $request)
     {
         //
+
+
+
+
     }
 
     /**

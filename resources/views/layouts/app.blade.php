@@ -14,18 +14,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
 
-                <!-- Branding Image -->
-                <a href="#" class="navbar-left">
-                    <img src="{{ URL::asset('app/assets/img/logo2.png')}}">
-                </a>
+
             </div>
 
             <div class="collapse navbar-collapse" id="top-navbar-1">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                  <!-- Branding Image -->
+                    <a href="#" class="navbar-left">
+                        <img src="{{ URL::asset('app/assets/img/logo2.png')}}">
+                    </a>
                 </ul>
 
                 <!-- Right Side Of Navbar -->

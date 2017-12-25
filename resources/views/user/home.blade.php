@@ -98,6 +98,7 @@
                                     <textarea class="form-control" id="opiskvara" rows="3"></textarea>
                                 </div>
                             </div>
+
                             <!-- Button -->
                             <div class="col-md-12">
                                 <div class="form-group">
