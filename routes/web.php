@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/appoitment', 'AppoitmentController@create');
 
+Route::get('/appoitment/all', 'AppoitmentController@showAll');
+

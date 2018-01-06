@@ -49,6 +49,19 @@ class AppoitmentController extends Controller
 
     }
 
+    // Show all Apoitments
+    public function showAll( )
+    {
+
+        $Appopitment = new Appoitment();
+
+        echo  $Appopitment->all();
+
+
+    }
+
+
+
     /**
      * Store a newly created resource in storage.
      *
