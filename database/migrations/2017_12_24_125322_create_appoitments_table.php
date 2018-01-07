@@ -23,6 +23,8 @@ class CreateAppoitmentsTable extends Migration
             $table->string('veh_make');
             $table->dateTime('appoitment');
             $table->string('description');
+            $table->integer('active');
+            $table->integer('confirm');
             $table->timestamps();
         });
     }

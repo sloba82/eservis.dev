@@ -23,3 +23,8 @@ Route::get('/appoitment', 'AppoitmentController@create');
 
 Route::get('/appoitment/all', 'AppoitmentController@showAll');
 
+Route::get('/appoitment/showById/{id}', 'AppoitmentController@show');
+
+Route::get('/appoitment/edit/{id}', 'AppoitmentController@edit');
+
+Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');

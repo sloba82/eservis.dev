@@ -17,7 +17,9 @@ class Appoitment extends Model
         'phone',
         'veh_make',
         'appoitment',
-        'description'
+        'description',
+        'active',
+        'confirm'
     ];
 
 
