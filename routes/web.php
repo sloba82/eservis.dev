@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/appoitment', 'AppoitmentController@create');
+Route::post('/appoitment', 'AppoitmentController@store');
 
 Route::get('/appoitment/all', 'AppoitmentController@showAll');
 

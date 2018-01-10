@@ -39,7 +39,7 @@
                     <div class="well-title">
                         <h2>Zakaži servis vozila</h2>
                     </div>
-                    <form> <!--stavi id="appoitment" u tok trenutku nestaje forma -->
+                    <form class="form"  method="post" action="/appoitment" > <!--stavi id="appoitment" u tok trenutku nestaje forma -->
                         <!-- Form start -->
                         <div class="row">
                             <div class="col-md-6">
@@ -68,7 +68,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label" for="date">Mobilni telefon</label>
-                                    <input id="date" name="date" type="number" placeholder="Mobilni telefon" class="form-control input-md">
+                                    <input id="date" name="phone" type="number" placeholder="Mobilni telefon" class="form-control input-md">
                                 </div>
                             </div>
 
@@ -77,7 +77,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label" for="vhe_make">Model vozila</label>
-                                    <input id="vhe_make" name="vhe_make" type="text" placeholder="Model vozila" class="form-control input-md">
+                                    <input id="veh_make" name="veh_make" type="text" placeholder="Model vozila" class="form-control input-md">
                                 </div>
                             </div>
 
@@ -85,7 +85,7 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label class="control-label" for="datetimepicker">Zakazi datum i vreme servisa</label>
-                                    <input id="datetimepicker" type="text" class="form-control input-md" >
+                                    <input id="datetimepicker" name="appoitment" type="text"  class="form-control input-md" >
 
                                 </div>
                             </div>
@@ -95,7 +95,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label for="opiskvara">Opis kvara</label>
-                                    <textarea class="form-control" id="opiskvara" rows="3"></textarea>
+                                    <textarea  id="opiskvara" name="description" class="form-control" rows="3"></textarea>
                                 </div>
                             </div>
 
@@ -106,6 +106,7 @@
                                 </div>
                             </div>
                         </div>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     </form>
                 </div>
             </div>

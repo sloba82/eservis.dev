@@ -15,6 +15,8 @@ class AppoitmentController extends Controller
     public function index()
     {
         //
+
+        return view('home.blade');
     }
 
     /**
@@ -23,27 +25,6 @@ class AppoitmentController extends Controller
      */
     public function create()
     {
-        //
-        if (Auth::user()) {
-            $user_id = Auth::user()->id;
-        }else{
-            $user_id = 0;
-        }
-
-        $Appopitment = new Appoitment([
-            'user_id' => $user_id,
-            'name'=> 'test',
-            'last_name'=> 'test',
-            'email'=> 'test',
-            'phone'=> 'test',
-            'veh_make'=> 'test',
-            'active' => 1,
-            'confirm' =>1,
-            'appoitment'=> '2017-12-12 00:00:00',
-            'description'=> 'test',
-
-        ]);
-        $Appopitment->save();
 
     }
 
@@ -62,7 +43,51 @@ class AppoitmentController extends Controller
      */
     public function store(Request $request)
     {
+
         //
+
+        $params = $request->all();
+        if (Auth::user()) {
+            $user_id = Auth::user()->id;
+        }else{
+            $user_id = 0;
+        }
+
+
+
+        $Appopitment = new Appoitment([
+            'user_id' => $user_id,
+            'name'=> $params['name'],
+            'last_name'=> $params['last_name'],
+            'email'=> $params['email'],
+            'phone'=> $params['phone'],
+            'veh_make'=> $params['veh_make'],
+            'appoitment'=> '2017-12-12 00:00:00',
+            'description'=> $params['description'],
+            'active' => 1,
+            'confirm' =>1
+
+        ]);
+        $Appopitment->save();
+
+
+
+    /*    $Appopitment = new Appoitment();
+
+
+
+        $Appopitment->user_id = $user_id;
+        $Appopitment->name = $params['name'];
+        $Appopitment->last_name = $params['last_name'];
+        $Appopitment->email = $params['email'];
+        $Appopitment->phone = $params['phone'];
+        $Appopitment->veh_make = $params['veh_make'];
+        $Appopitment->appoitment = '2017-12-12 00:00:00';
+        $Appopitment->description = $params['description'];
+        $Appopitment->active = 1;
+        $Appopitment->confirm = 1;
+
+        $Appopitment->save();*/
 
     }
 
