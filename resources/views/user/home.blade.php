@@ -102,7 +102,7 @@
                             <!-- Button -->
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <button id="singlebutton" name="singlebutton" class="btn btn-success">Zakazi servis</button>
+                                    <button id="singlebutton"  class="btn btn-success">Zakazi servis</button>
                                 </div>
                             </div>
                         </div>
