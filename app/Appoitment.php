@@ -23,4 +23,16 @@ class Appoitment extends Model
     ];
 
 
+
+
+    public static $rules = [
+        'name' => 'required|max:256',
+        'last_name' => 'required|max:256',
+        'phone' => 'required|integer',
+      
+
+
+    ];
+
+
 }

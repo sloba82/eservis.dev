@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Appoitment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class AppoitmentController extends Controller
 {
@@ -18,7 +19,7 @@ class AppoitmentController extends Controller
     public function index()
     {
         //
-        
+       
 
     }
 
@@ -28,7 +29,7 @@ class AppoitmentController extends Controller
      */
     public function create()
     {
-
+        return view('welcome');
     }
 
     // Show all Apoitments
@@ -49,9 +50,23 @@ class AppoitmentController extends Controller
 
         $params = $request->all();
 
-        foreach ($params as $key => $value) {
+
+
+/*
+        $valid = Validator::make($params, Appoitment::$rules);
+
+
+        if ($valid->fails()) {
+           $response = response()->json(array('message' => 'response.invalid' ), 400);
+      $message = 'popunite sva polja';
+      return redirect()->route('/home')->with(['message'=>$message]);;
+
+
+        }
+*/
+       foreach ($params as $key => $value) {
             if ($value == null) {
-                return $key;
+                return redirect('/home');  
             }
         }
 
@@ -67,7 +82,7 @@ class AppoitmentController extends Controller
        
         $Appopitment = new Appoitment([
             'user_id' => $user_id,
-            'name' => $params['name'],
+            'name' => $params['name'] ,
             'last_name' => $params['last_name'],
             'email' => $params['email'],
             'phone' => $params['phone'],
@@ -80,6 +95,7 @@ class AppoitmentController extends Controller
         ]);
 
         $Appopitment->save();
+        return redirect('/home');
 
     }
 

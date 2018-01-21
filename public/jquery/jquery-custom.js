@@ -42,18 +42,23 @@ $(function() {
     //form appoitment get values
 
 
-/*$('#appoitmentForm').submit(function() {
+$('#appoitmentForm').submit(function() {
     // get all the inputs into an array.
-    var $inputs = $('#appoitmentForm:input');
-*/
-    // not sure if you wanted this, but I thought I'd add it.
-    // get an associative array of just the values.
+   var Data =  $('#appoitmentForm').serializeArray()
+
+   
+   console.log(Data);
+
+
+
+
+
 /*    var values = {};
     $inputs.each(function() {
         values[this.name] = $(this).val();
-    });*/
+    });
 
-/*
+
      $.ajaxSetup({
         header:$('meta[name="_token"]').attr('content')
     })
@@ -73,14 +78,18 @@ $(function() {
         error: function(data){
 
         }
-    })
+    })*/
    
 });
-*/
+
 
 
 
     //end form values
+
+
+
+
 
 
 
