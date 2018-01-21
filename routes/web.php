@@ -18,8 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/appoitment', 'HomeController@index')->name('home');
 
-Route::post('/appoitment', 'AppoitmentController@store');
+/*Route::post('/appoitment', 'AppoitmentController@store');*/
+Route::resource('/appoitment' , 'AppoitmentController' );
 
 Route::get('/appoitment/all', 'AppoitmentController@showAll');
 

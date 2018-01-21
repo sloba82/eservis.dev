@@ -40,12 +40,48 @@ $(function() {
     //end datepicker
 
     //form appoitment get values
-/*    $( "#appoitment" ).submit(function( event ) {
-        console.log( $( this ).serializeArray() );
 
+
+/*$('#appoitmentForm').submit(function() {
+    // get all the inputs into an array.
+    var $inputs = $('#appoitmentForm:input');
+*/
+    // not sure if you wanted this, but I thought I'd add it.
+    // get an associative array of just the values.
+/*    var values = {};
+    $inputs.each(function() {
+        values[this.name] = $(this).val();
     });*/
 
+/*
+     $.ajaxSetup({
+        header:$('meta[name="_token"]').attr('content')
+    })
+
+
+      e.preventDefault(e);
+
+        $.ajax({
+
+        type:"POST",
+        url:'/appoitment',
+        data:$inputs,
+        dataType: 'json',
+        success: function(data){
+            console.log(data);
+        },
+        error: function(data){
+
+        }
+    })
+   
+});
+*/
+
+
+
     //end form values
+
 
 
 });

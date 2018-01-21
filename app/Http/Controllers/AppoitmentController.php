@@ -12,10 +12,13 @@ class AppoitmentController extends Controller
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
+
+
+
     public function index()
     {
         //
-
+        
 
     }
 
@@ -58,6 +61,10 @@ class AppoitmentController extends Controller
             $user_id = 0;
         }
 
+
+        $dateAndTime = str_replace("/","-", $params['appoitment']);
+        $dateAndTime .=':00';    
+       
         $Appopitment = new Appoitment([
             'user_id' => $user_id,
             'name' => $params['name'],
@@ -65,7 +72,7 @@ class AppoitmentController extends Controller
             'email' => $params['email'],
             'phone' => $params['phone'],
             'veh_make' => $params['veh_make'],
-            'appoitment' => '2017-12-12 00:00:00',
+            'appoitment' => $dateAndTime,
             'description' => $params['description'],
             'active' => 1,
             'confirm' => 1
