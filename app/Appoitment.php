@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Appoitment extends Model
 {
     //
+    protected $table = "appoitments";
 
     protected $fillable = [
 
@@ -21,9 +22,6 @@ class Appoitment extends Model
         'active',
         'confirm'
     ];
-
-
-
 
     public static $rules = [
         'name' => 'required|max:256',
