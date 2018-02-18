@@ -19,7 +19,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/appoitment' , 'AppoitmentController' );
+Route::resource('/appoitment' , 'AppoitmentController');
 
 
 Route::get('/appoitment/all', 'AppoitmentController@showAll');

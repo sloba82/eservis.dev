@@ -29,7 +29,7 @@ class AppoitmentController extends Controller
      */
     public function create()
     {
-        return view('welcome');
+
     }
 
     // Show all Apoitments
@@ -95,7 +95,7 @@ class AppoitmentController extends Controller
         ]);
 
         $Appopitment->save();
-        return redirect('/home');
+        return view('../welcome');
 
     }
 
