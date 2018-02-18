@@ -66,7 +66,7 @@ class AppoitmentController extends Controller
 */
        foreach ($params as $key => $value) {
             if ($value == null) {
-                return redirect('/home');  
+                return redirect('/');
             }
         }
 
@@ -95,7 +95,7 @@ class AppoitmentController extends Controller
         ]);
 
         $Appopitment->save();
-        return view('../welcome');
+        return redirect('/');
 
     }
 
