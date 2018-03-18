@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Appoitment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use App\Repository\Appointment\AppointmentRepository;
+
+
 
 class AppoitmentController extends Controller
 {
@@ -13,9 +16,6 @@ class AppoitmentController extends Controller
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
-
-
-
     public function index()
     {
         //
@@ -35,8 +35,11 @@ class AppoitmentController extends Controller
     // Show all Apoitments
     public function showAll()
     {
-        $Appopitment = new Appoitment();
-        echo $Appopitment->all();
+        $AppointmentRepository = new AppointmentRepository();
+        return $AppointmentRepository->showAppointment();
+    //    return view('admin/admin_appoitm');
+ /*       $Appopitment = new Appoitment();
+        echo $Appopitment->all();*/
     }
 
 
@@ -75,8 +78,6 @@ class AppoitmentController extends Controller
         } else {
             $user_id = 0;
         }
-
-
         $dateAndTime = str_replace("/","-", $params['appoitment']);
         $dateAndTime .=':00';    
        

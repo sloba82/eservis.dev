@@ -641,3 +641,7 @@ footer h3 {
 .smallTmargine {
 	margin-top: 5px;
 }
+
+.navbar.navbar-default.navbar-static-top.navbaradmin {
+	background-color: #122b40;
+}
