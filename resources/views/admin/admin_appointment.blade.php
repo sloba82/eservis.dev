@@ -95,6 +95,20 @@
     </div>
 </nav>
 
+@if (count($allapointments->all()))
+
+
+
+    @foreach($allapointments->all() as $allapointment )
+
+        <p>{{ $allapointment->name}} </p>
+
+    @endforeach
+
+@else
+    nema
+
+@endif
 
 
 </body>

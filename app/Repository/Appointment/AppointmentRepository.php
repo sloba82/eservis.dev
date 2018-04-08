@@ -1,15 +1,25 @@
 <?php
 namespace App\Repository\Appointment;
 
+
+use Illuminate\Http\Request;
 use App\Appoitment;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use App\Repository\Appointment\AppointmentRepository;
+use Illuminate\Routing\Redirector;
 
 
+class AppointmentRepository
+{
 
-class AppointmentRepository {
 
+    public function showAppointment()
+    {
 
-    public function showAppointment () {
-        return view('admin/admin_appoitm');
+        $allapointments = new Appoitment();
+        return view('/admin/admin_appointment', compact('allapointments'));
     }
+
 
 }

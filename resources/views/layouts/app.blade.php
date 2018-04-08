@@ -24,7 +24,7 @@
             <div class="collapse navbar-collapse" id="top-navbar-1">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                  <!-- Branding Image -->
+                    <!-- Branding Image -->
                     <a href="#" class="navbar-left">
                         <img src="{{ URL::asset('app/assets/img/logo2.png')}}">
                     </a>
@@ -68,13 +68,13 @@
             </div>
         </div>
     </nav>
-@endsection
+    @endsection
 
 
-@section('body')
+    @section('body')
     @yield('content')
 
-   <!-- Footer -->
+            <!-- Footer -->
     <footer>
         <div class="container">
             <div class="row">
@@ -104,10 +104,10 @@
     <script src="{{ URL::asset('app/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
     <!--End Datatimepicker -->
 
-</body>
+    </body>
 
 
 
 
-</html>
+    </html>
 @endsection

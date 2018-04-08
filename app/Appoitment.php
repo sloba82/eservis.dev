@@ -27,7 +27,6 @@ class Appoitment extends Model
         'name' => 'required|max:256',
         'last_name' => 'required|max:256',
         'phone' => 'required|integer',
-      
 
 
     ];
