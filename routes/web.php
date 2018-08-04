@@ -19,13 +19,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/appoitment', 'AppoitmentController@store');
 
+/*Route::resource('/appoitment', 'AppoitmentController');*/
+
+Route::post('/appoitment', 'AppoitmentController@store');
 
 Route::get('/appoitment/showAll', 'AppoitmentController@showAll');
 
-Route::get('/appoitment/showById/{id}', 'AppoitmentController@show');
+Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
 
-Route::get('/appoitment/edit/{id}', 'AppoitmentController@edit');
+Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
 
 Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');

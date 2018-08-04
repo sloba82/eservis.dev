@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Validator;
 use App\Repository\Appointment\AppointmentRepository;
 
 
-
 class AppoitmentController extends Controller
 {
     /**
@@ -19,7 +18,7 @@ class AppoitmentController extends Controller
     public function index()
     {
         //
-       
+
 
     }
 
@@ -37,9 +36,7 @@ class AppoitmentController extends Controller
     {
         $AppointmentRepository = new AppointmentRepository();
         return $AppointmentRepository->showAppointment();
-    //    return view('admin/admin_appoitm');
- /*       $Appopitment = new Appoitment();
-        echo $Appopitment->all();*/
+
     }
 
 
@@ -55,19 +52,8 @@ class AppoitmentController extends Controller
 
 
 
-/*
-        $valid = Validator::make($params, Appoitment::$rules);
 
-
-        if ($valid->fails()) {
-           $response = response()->json(array('message' => 'response.invalid' ), 400);
-      $message = 'popunite sva polja';
-      return redirect()->route('/home')->with(['message'=>$message]);;
-
-
-        }
-*/
-       foreach ($params as $key => $value) {
+        foreach ($params as $key => $value) {
             if ($value == null) {
                 return redirect('/');
             }
@@ -78,20 +64,22 @@ class AppoitmentController extends Controller
         } else {
             $user_id = 0;
         }
-        $dateAndTime = str_replace("/","-", $params['appoitment']);
-        $dateAndTime .=':00';    
-       
+        $dateAndTime = str_replace("/", "-", $params['appoitment']);
+        $dateAndTime .= ':00';
+
+
         $Appopitment = new Appoitment([
             'user_id' => $user_id,
-            'name' => $params['name'] ,
+            'name' => $params['name'],
             'last_name' => $params['last_name'],
             'email' => $params['email'],
             'phone' => $params['phone'],
             'veh_make' => $params['veh_make'],
             'appoitment' => $dateAndTime,
             'description' => $params['description'],
+            'comment_admin' => 'nema komentara',
             'active' => 1,
-            'confirm' => 1
+            'confirm' => 0
 
         ]);
 
@@ -111,9 +99,10 @@ class AppoitmentController extends Controller
         $Appopitment = Appoitment::find($id);
 
         if (!$Appopitment) {
-            return 'Nothing to show';
+            $Appopitment = 'Nothing to show';
         }
-        return $Appopitment->name;
+
+        return view('/admin/admin_appointment_edit', compact('Appopitment'));
     }
 
     /**
@@ -123,25 +112,8 @@ class AppoitmentController extends Controller
      */
     public function edit($id)
     {
-        //
-        $Appopitment = Appoitment::find($id);
 
-        if (!$Appopitment) {
-            return 'No Record';
-        }
-        $Appopitment->update([
 
-            'user_id' => 3,
-            'name' => 'test update',
-            'last_name' => 'test update',
-            'email' => 'test update',
-            'phone' => 'test update',
-            'veh_make' => 'test update',
-            'active' => 2,
-            'confirm' => 3,
-            'appoitment' => '2017-12-12 00:00:00',
-            'description' => 'test update'
-        ]);
     }
 
     /**
@@ -152,7 +124,12 @@ class AppoitmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $Appopitment = Appoitment::findOrFail($id);
+        $Appopitment->update($request->all());
+
+        return redirect('/appoitment/showAll');
+
     }
 
     /**
@@ -166,6 +143,7 @@ class AppoitmentController extends Controller
         $Appopitment = Appoitment::find($id);
         $Appopitment->delete();
 
+        return redirect('admin/');
 
     }
 }

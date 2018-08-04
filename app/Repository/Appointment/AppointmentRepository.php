@@ -18,8 +18,10 @@ class AppointmentRepository
     {
 
         $allapointments = new Appoitment();
-        return view('/admin/admin_appointment', compact('allapointments'));
+        return view('/admin/admin_appointment_allresoult', compact('allapointments'));
     }
+
+
 
 
 }

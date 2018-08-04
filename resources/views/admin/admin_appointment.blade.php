@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<html lang="{{ app()->getLocale() }}" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/datetimepicker/jquery.datetimepicker.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
 
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -41,6 +43,30 @@
           href="{{ URL::asset('app/assets/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed"
           href="{{ URL::asset('app/assets/ico/apple-touch-icon-57-precomposed.png')}}">
+
+
+    <!--DATA TABLE -->
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/DataTables/datatables.css')}}">
+
+
+    <script src="{{ URL::asset('app/assets/DataTables/datatables.js') }}"></script>
+    <script>
+        $(document).ready( function () {
+            $('#table_id').DataTable(
+                    {
+                        responsive: true,
+                        rowGroup: {
+                            dataSrc: 'group'
+                        }
+
+                    }
+
+            );
+
+
+        } );
+
+    </script>
 
 
 </head>
@@ -73,7 +99,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#services">Services</a></li>
+                <li><a href={{ url('/appoitment/showAll') }}>Sva Zakazivanja</a></li>
                 <li><a href="#portfolio">Work</a></li>
                 <li><a href="#testimonials">Clients</a></li>
                 <li><a href="#footer">Contact</a></li>
@@ -94,22 +120,7 @@
         </div>
     </div>
 </nav>
-
-@if (count($allapointments->all()))
-
-
-
-    @foreach($allapointments->all() as $allapointment )
-
-        <p>{{ $allapointment->name}} </p>
-
-    @endforeach
-
-@else
-    nema
-
-@endif
-
+@yield('table')
 
 </body>
 </html>

@@ -22,7 +22,8 @@ class CreateAppoitmentsTable extends Migration
             $table->string('phone');
             $table->string('veh_make');
             $table->dateTime('appoitment');
-            $table->string('description');
+            $table->string('description', 512);
+            $table->string('comment_admin');
             $table->integer('active');
             $table->integer('confirm');
             $table->timestamps();

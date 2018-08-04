@@ -19,6 +19,7 @@ class Appoitment extends Model
         'veh_make',
         'appoitment',
         'description',
+        'comment_admin',
         'active',
         'confirm'
     ];
@@ -30,6 +31,7 @@ class Appoitment extends Model
 
 
     ];
+
 
 
 }
