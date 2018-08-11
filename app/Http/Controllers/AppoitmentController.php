@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Appoitment;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
 use App\Repository\Appointment\AppointmentRepository;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class AppoitmentController extends Controller
@@ -51,8 +50,6 @@ class AppoitmentController extends Controller
         $params = $request->all();
 
 
-
-
         foreach ($params as $key => $value) {
             if ($value == null) {
                 return redirect('/');
@@ -64,6 +61,8 @@ class AppoitmentController extends Controller
         } else {
             $user_id = 0;
         }
+
+
         $dateAndTime = str_replace("/", "-", $params['appoitment']);
         $dateAndTime .= ':00';
 
@@ -77,7 +76,7 @@ class AppoitmentController extends Controller
             'veh_make' => $params['veh_make'],
             'appoitment' => $dateAndTime,
             'description' => $params['description'],
-            'comment_admin' => 'nema komentara',
+            'comment_admin' => 'Nema komentar',
             'active' => 1,
             'confirm' => 0
 
@@ -125,12 +124,18 @@ class AppoitmentController extends Controller
     public function update(Request $request, $id)
     {
 
+        if (strpos($request['appoitment'], '/')) {
+            $dateAndTime = str_replace("/", "-", $request['appoitment']);
+            $dateAndTime .= ':00';
+            $request['appoitment'] = $dateAndTime;
+        }
+
         $Appopitment = Appoitment::findOrFail($id);
         $Appopitment->update($request->all());
 
         return redirect('/appoitment/showAll');
-
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -144,6 +149,17 @@ class AppoitmentController extends Controller
         $Appopitment->delete();
 
         return redirect('admin/');
+
+    }
+
+
+    public function ajaxConfirm(Request $request)
+    {
+
+        $id = $request['AppData']['id'];
+
+        $Appopitment = Appoitment::findOrFail($id);
+        $Appopitment->update(['confirm' => 1]);
 
     }
 }

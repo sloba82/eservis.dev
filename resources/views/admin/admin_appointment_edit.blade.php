@@ -13,6 +13,75 @@
             {{ csrf_field() }}
             {{ method_field('POST') }}
                     <!--start slider chackbox-->
+
+
+
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-12 "><h4 class="pull-left">Detalji zakazanog servisa
+                            vozila: {{$Appopitment->veh_make}}</h4></div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 pull-left control-label">Ime:</label>
+
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" name="name" value="{{$Appopitment->name}}">
+                    </div>
+                    <label class="col-sm-2 pull-left control-label">Prezime:</label>
+
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" name="last_name" value="{{$Appopitment->last_name}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 pull-left control-label">Telefon:</label>
+
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" name="phone" value="{{$Appopitment->phone}}">
+                    </div>
+                    <label class="col-sm-2 pull-left control-label">Email:</label>
+
+                    <div class="col-sm-4">
+                        <input class="form-control" type="text" name="email" value="{{$Appopitment->email}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                </div>
+                {{--  @if ($Appopitment->confirm == 0)--}}
+                <div class="form-group">
+                    <label class="col-lg-4 pull-left control-label">Zakazano za:</label>
+
+                    <div class="col-lg-8">
+                        <input id="datetimepicker" name="appoitment" class="form-control input-md" type="text" value="{{$Appopitment->appoitment}}">
+                    </div>
+                </div>
+                {{--   @endif--}}
+                <div class="form-group">
+                    <label class="col-lg-3 pull-left control-label">Model vozila:</label>
+
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" name="veh_make" value="{{$Appopitment->veh_make}}">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 pull-left control-label">Opis kvara:</label>
+
+                    <div class="col-lg-9">
+                        <textarea class="form-control" name="description">{{$Appopitment->description}}</textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 pull-left control-label">Komentar Servisa:</label>
+
+                    <div class="col-lg-9">
+                        <input class="form-control" type="text" name="comment_admin"
+                               value="{{$Appopitment->comment_admin}}">
+                    </div>
+                </div>
+            </div>
+
+
+
             <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-12 "><h4 class="pull-left">Obavestenja prema klijentu
@@ -86,79 +155,7 @@
                 </div>
             </div>
             <!--end slider chackbox-->
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-sm-12 "><h4 class="pull-left">Detalji zakazanog servisa
-                            vozila: {{$Appopitment->veh_make}}</h4></div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 pull-left control-label">Ime:</label>
 
-                    <div class="col-sm-4">
-                        <input class="form-control" type="text" name="name" value="{{$Appopitment->name}}">
-                    </div>
-                    <label class="col-sm-2 pull-left control-label">Prezime:</label>
-
-                    <div class="col-sm-4">
-                        <input class="form-control" type="text" name="last_name" value="{{$Appopitment->last_name}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-2 pull-left control-label">Telefon:</label>
-
-                    <div class="col-sm-4">
-                        <input class="form-control" type="text" name="appoitment" value="{{$Appopitment->phone}}">
-                    </div>
-                    <label class="col-sm-2 pull-left control-label">Email:</label>
-
-                    <div class="col-sm-4">
-                        <input class="form-control" type="text" name="email" value="{{$Appopitment->email}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                </div>
-              {{--  @if ($Appopitment->confirm == 0)--}}
-                    <div class="form-group">
-                        <label class="col-lg-4 pull-left control-label">Zakazano za:</label>
-
-                        <div class="col-lg-8">
-                            <input class="form-control" type="text" name="appoitment"
-                                   value="{{$Appopitment->appoitment}}">
-
-                            <p class="pTextLeft">* uneti u obliku: 2018-01-01 12:00:00</p>
-                        </div>
-                    </div>
-             {{--   @endif--}}
-                <div class="form-group">
-                    <label class="col-lg-3 pull-left control-label">Model vozila:</label>
-
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" name="veh_make" value="{{$Appopitment->veh_make}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 pull-left control-label">Opis kvara:</label>
-
-                    <div class="col-lg-9">
-                        <textarea class="form-control" name="description">{{$Appopitment->description}}</textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 pull-left control-label">Email:</label>
-
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" name="email" value="{{$Appopitment->email}}">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-lg-3 pull-left control-label">Komentar Servisa:</label>
-
-                    <div class="col-lg-9">
-                        <input class="form-control" type="text" name="comment_admin"
-                               value="{{$Appopitment->comment_admin}}">
-                    </div>
-                </div>
-            </div>
             <div class="row">
                 <div class="form-group">
 

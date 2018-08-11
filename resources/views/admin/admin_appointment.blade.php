@@ -1,18 +1,14 @@
 <!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}" xmlns="http://www.w3.org/1999/html">
+<html lang="{{ app()->getLocale() }}" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>{{ config('app.name', 'Laravel') }}</title>
-
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
     <!-- CSS -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,600">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/bootstrap/css/bootstrap.min.css')}}">
@@ -23,6 +19,14 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/datetimepicker/jquery.datetimepicker.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
 
+    <!-- Scripts -->
+    <script src="{{URL:: asset('js/app.js') }}"></script>
+
+    <script src="{{ URL::asset('app/assets/js/jquery-1.11.1.min.js')}}"></script>
+    <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{ URL::asset('jquery/jquery-admin.js')}}"></script>
+    <script src="{{ URL::asset('jquery/jquery-admin-ajax.js')}}"></script>
+    <script src="{{ URL::asset('jquery/jquery-3.3.1.min.js') }}"></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -44,30 +48,22 @@
     <link rel="apple-touch-icon-precomposed"
           href="{{ URL::asset('app/assets/ico/apple-touch-icon-57-precomposed.png')}}">
 
-
     <!--DATA TABLE -->
     <link rel="stylesheet" href="{{ URL::asset('app/assets/DataTables/datatables.css')}}">
-
-
     <script src="{{ URL::asset('app/assets/DataTables/datatables.js') }}"></script>
     <script>
-        $(document).ready( function () {
+        $(document).ready(function () {
             $('#table_id').DataTable(
                     {
                         responsive: true,
                         rowGroup: {
                             dataSrc: 'group'
                         }
-
                     }
-
             );
 
-
-        } );
-
+        });
     </script>
-
 
 </head>
 <body>
@@ -121,6 +117,20 @@
     </div>
 </nav>
 @yield('table')
+
+        <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div id="logoImages">
+
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- Datatimepicker -->
+<script src="{{ URL::asset('app/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
+<!--End Datatimepicker -->
 
 </body>
 </html>

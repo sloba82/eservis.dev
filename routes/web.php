@@ -20,8 +20,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-/*Route::resource('/appoitment', 'AppoitmentController');*/
-
 Route::post('/appoitment', 'AppoitmentController@store');
 
 Route::get('/appoitment/showAll', 'AppoitmentController@showAll');
@@ -31,3 +29,6 @@ Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
 Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
 
 Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
+
+Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
+

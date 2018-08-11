@@ -651,6 +651,12 @@ footer h3 {
 	text-align: left;
 }
 
+#table_id td {
+	padding:  1px 10px 1px 5px ;
+
+}
+
+
 .nofitication-head-of-page {
 	background-color: #CCFFE5;
 	padding: 10px;
@@ -720,4 +726,9 @@ footer h3 {
 
 .form-horizontal.appointmentEdit .control-label{
 	text-align: left;
+}
+
+.confirm {
+	background-color: #CCFFE5;
+
 }

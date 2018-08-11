@@ -2,7 +2,10 @@
 
 
 @section('table')
-    <div class="container">
+
+      <div class="container">
+
+
         <table id="table_id" class="display">
             <thead>
             <tr>
@@ -18,21 +21,33 @@
             </thead>
             <tbody>
 
-
             @if (count($allapointments->all()))
 
                 @foreach($allapointments->all() as $allapointment )
-                    <tr>
-                        <td>{{ $allapointment->appoitment}} </td>
+                    <tr class=
+                          @if($allapointment->confirm)
+                            "confirm"
+                          @endif
+
+                    >
+                        <td>{{str_limit($allapointment->appoitment, $limit = 16, $end ='' ) }} </td>
                         <td>{{ $allapointment->name}} </td>
                         <td>{{ $allapointment->last_name}} </td>
                         <td>{{ $allapointment->phone}} </td>
                         <td>{{ $allapointment->veh_make}} </td>
                         <td>{{ str_limit( $allapointment->comment_admin, $limit = 20, $end = '...') }}</td>
                         <td><a href="{{ url('/appoitment/showSingle/'. $allapointment->id ) }}">
-                             <button type="button" class="btn btn-info btn-sm">Detalji / Izmeni</button>
+                             <button  type="button" class="btn btn-info btn-sm">Detalji / Izmeni</button>
                             </a></td>
-                        <td><button type="button" class="btn btn-success btn-sm">Potvrdi</button></td>
+                        <td><button
+                                    id="{{$allapointment->id}}"
+                                    type="button"
+                                    class="btn btn-success btn-sm"
+                                    @if($allapointment->confirm)
+                                      disabled
+                                    @endif
+                                    >Potvrdi</button>
+                        </td>
                     </tr>
                 @endforeach
 
@@ -40,7 +55,8 @@
 
             </tbody>
         </table>
-    </div>
+      </div>
+
 @endsection
 
 

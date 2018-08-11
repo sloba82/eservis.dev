@@ -39,56 +39,6 @@ $(function() {
     );
     //end datepicker
 
-    //form appoitment get values
-
-
-$('#appoitmentForm').submit(function() {
-    // get all the inputs into an array.
-   var Data =  $('#appoitmentForm').serializeArray()
-
-   
-   console.log(Data);
-
-
-
-
-
-/*    var values = {};
-    $inputs.each(function() {
-        values[this.name] = $(this).val();
-    });
-
-
-     $.ajaxSetup({
-        header:$('meta[name="_token"]').attr('content')
-    })
-
-
-      e.preventDefault(e);
-
-        $.ajax({
-
-        type:"POST",
-        url:'/appoitment',
-        data:$inputs,
-        dataType: 'json',
-        success: function(data){
-            console.log(data);
-        },
-        error: function(data){
-
-        }
-    })*/
-   
-});
-
-
-
-
-    //end form values
-
-
-
 
 
 
