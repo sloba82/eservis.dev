@@ -34,5 +34,5 @@ Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
 Route::get('/service');
 
-Route::get('/servise/add');
+Route::get('/service/add');
 
