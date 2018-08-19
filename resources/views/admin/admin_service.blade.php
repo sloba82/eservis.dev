@@ -9,7 +9,7 @@
             service
         </h3>
 
-        <a href="">
+        <a href="{{ url('/service/search') }}">
             dodaj vozilo
         </a>
 

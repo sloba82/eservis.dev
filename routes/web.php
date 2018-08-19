@@ -36,5 +36,6 @@ Route::get('/service', function () {
     return view('/admin/admin_service');
 });
 
-Route::post('/service/search', 'ServiceController@search' );
-
+Route::get('/service/search', function () {
+    return view('/admin/admin_service-search');
+});
