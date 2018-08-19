@@ -1,4 +1,4 @@
-@extends('admin/admin_appointment')
+@extends('admin.admin_index')
 
 
 @section('table')
@@ -185,10 +185,9 @@
                     <input type="reset" class="btn btn-secondary btn-lg btn-block" value="Ponisti / Resetuj">
                 </div>
                 <div class="col-md-4">
-               {{--     <a href="{{ url('/appoitment/showAll') }}">--}}
+                    <a href="{{ url('/appoitment/showAll') }}">
                         <button id="{{$Appopitment->id}}" type="button" data-action="active" class="btn btn-danger btn-lg btn-block delete">Obrisi zakazivanje</button>
-               {{--     </a>--}}
-
+                    </a>
                 </div>
             </div>
 

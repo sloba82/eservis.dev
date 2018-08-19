@@ -9,7 +9,6 @@ var AdminAjax = {
             }
         });
 
-console.log(Param['field']);
 
         $.ajax({
             type: 'POST',
@@ -17,11 +16,9 @@ console.log(Param['field']);
             dataType: 'json',
             data: {AppData: Param},
             success: function (data) {
-                console.log(data);
 
             }
         });
     }
-
 
 };

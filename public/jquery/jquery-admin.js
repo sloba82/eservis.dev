@@ -1,10 +1,9 @@
-$(function() {
+$(function () {
 
-    $('#datetimepicker').datetimepicker({
-    });
+    $('#datetimepicker').datetimepicker({});
 
-    $('#allresoult').DataTable( {
-        order: [[ 0, "desc" ]],
+    $('#allresoult').DataTable({
+        order: [[0, "desc"]],
         columnDefs: [
             {
                 targets: -1,
@@ -14,17 +13,16 @@ $(function() {
         search: {
             "smart": true
         }
-    } );
+    });
 
-    $('button').on('click', function() {
+    $('button').on('click', function () {
 
-        if(this.id) {
+        if (this.id) {
             var Param = {
-                url : '/appoitment/ajaxConfirm',
-                id : this.id,
-                field : $(this).attr('data-action')
+                url: '/appoitment/ajaxConfirm',
+                id: this.id,
+                field: $(this).attr('data-action')
             };
-
 
             AdminAjax.updateField(Param);
             $(this).attr('disabled', true);
@@ -32,7 +30,6 @@ $(function() {
 
         }
     });
-
 
 
 });

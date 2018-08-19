@@ -1,4 +1,4 @@
-@extends('admin/admin_appointment')
+@extends('admin.admin_index')
 
 
 @section('table')
