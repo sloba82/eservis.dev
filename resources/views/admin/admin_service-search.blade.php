@@ -4,6 +4,7 @@
 @section('table')
 
 
+
     <div class="container">
 
         <form id="service-add" class="form-horizontal" role="form" method="post"
@@ -14,7 +15,7 @@
                 <label class="col-lg-3 pull-left control-label">Tablice Vozila:</label>
 
                 <div class="col-lg-9">
-                    <input id="tags" class="form-control" type="text" name="" value="">
+                    <input id="autocomplete" title="type" class="ui-autocomplete-input">
                 </div>
             </div>
 
