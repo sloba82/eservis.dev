@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 
+
 @section('content')
 
 <!-- Top content -->
-<div class="top-content">
+<div class="top-content" id="topContent">
     <div class="inner-bg">
         <div class="container">
 
@@ -14,15 +15,15 @@
                         <a href="index.html"></a>
                     </div>
                     <h1 class="wow fadeInLeftBig">Auto servis Ljuba ms</h1>
-
+                    <img src="{{URL::asset('app/assets/img/serviceicons2.png')}}">
                     <div class="description wow fadeInLeftBig">
-                        <p>
-                            ovde neki tekst
+                        <p class="smallTmargine">
+                           <h3>Servis za auto elektriku</h3>
                         </p>
                     </div>
                     <div class="top-big-link wow fadeInUp">
-                        <a class="btn btn-link-1" href="#">Zaka�i servis</a>
-                        <a class="btn btn-link-2" href="#services">Proveri status vozila</a>
+                        <a id="setappointment" class="btn btn-warning btn-lg" href="#">Zakaži servis</a>
+                        <a class="btn btn-info btn-lg" href="#services">Proveri status vozila</a>
                     </div>
                 </div>
             </div>
@@ -30,104 +31,112 @@
     </div>
 </div>
 
-<!--------- forma under construction ----------->
+<div id="appoitment">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="well-block">
+                    <div class="well-title">
+                        <h2>Zakaži servis vozila</h2>
+                    </div>
+                    <form  id="appoitmentForm" class="form"  method="post" action="/appoitment" > <!--stavi id="appoitment" u tok trenutku nestaje forma -->
+                        <!-- Form start -->
+                     
 
 
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <div class="well-block">
-                <div class="well-title">
-                    <h2>Questions? Book an Appointment</h2>
-                </div>
-                <form>
-                    <!-- Form start -->
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" for="name">Name</label>
-                                <input id="name" name="name" type="text" placeholder="Name" class="form-control input-md">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="name">Ime</label>
+                                    <input id="name" name="name" type="text" placeholder="Ime" class="form-control input-md">
+                                </div>
                             </div>
-                        </div>
-                        <!-- Text input-->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" for="email">Email</label>
-                                <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
+                            <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="last_name">Prezime</label>
+                                    <input id="last_name" name="last_name" type="text" placeholder="Prezime" class="form-control input-md">
+                                </div>
                             </div>
-                        </div>
-                        <!-- Text input-->
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label class="control-label" for="date">Preferred Date</label>
-                                <input id="date" name="date" type="text" placeholder="Preferred Date" class="form-control input-md">
-                            </div>
-                        </div>
-                        <!-- Select Basic -->
-                        <div class="col-md-6">
-
-                            <div class="form-group">
-                                <div class="input-append date" id="datepicker"  data-date-format="dd-mm-yyyy">
-
-                                    <input id="pic" class="span2" size="16" type="text" value="">
-                                    <div class="input-group-addon">
-                                        <span class="glyphicon glyphicon-th"></span>
-                                    </div>
-
-                                    <span class="add-on"><i class="icon-th"></i></span>
+                            <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="email">Email</label>
+                                    <input id="email" name="email" type="text" placeholder="E-Mail" class="form-control input-md">
                                 </div>
                             </div>
 
 
+                            <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="date">Mobilni telefon</label>
+                                    <input id="date" name="phone" type="number" placeholder="Mobilni telefon" class="form-control input-md">
+                                </div>
+                            </div>
 
 
-                        </div>
-                        <!-- Select Basic -->
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <label class="control-label" for="appointmentfor">Appointment For</label>
-                                <select id="appointmentfor" name="appointmentfor" class="form-control">
-                                    <option value="Service#1">Service#1</option>
-                                    <option value="Service#2">Service#2</option>
-                                    <option value="Service#3">Service#3</option>
-                                    <option value="Service#4">Service#4</option>
-                                </select>
+                             <!-- Text input-->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="vhe_make">Model vozila</label>
+                                    <input id="veh_make" name="veh_make" type="text" placeholder="Model vozila" class="form-control input-md">
+                                </div>
+                            </div>
+
+                            <!-- datepicker -->
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label" for="datetimepicker">Zakazi datum i vreme servisa</label>
+                                    <input id="datetimepicker" name="appoitment" type="text"  class="form-control input-md" >
+
+                                </div>
+                            </div>
+                            <!-- datepicker -->
+
+                            <!-- Select Basic -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="opiskvara">Opis kvara</label>
+                                    <textarea  id="opiskvara" name="description" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <!-- Button -->
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <button id="singlebutton"  class="btn btn-success">Zakazi servis</button>
+                                </div>
                             </div>
                         </div>
-                        <!-- Button -->
-                        <div class="col-md-12">
-                            <div class="form-group">
-                                <button id="singlebutton" name="singlebutton" class="btn btn-default">Make An Appointment</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-                <!-- form end -->
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="well-block">
-                <div class="well-title">
-                    <h2>Why Appointment with Us</h2>
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    </form>
                 </div>
-                <div class="feature-block">
-                    <div class="feature feature-blurb-text">
-                        <h4 class="feature-title">24/7 Hours Available</h4>
-                        <div class="feature-content">
-                            <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
-                        </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="well-block">
+                    <div class="well-title">
+                        <h2>Zasto servisirati vozilo kod nas?</h2>
                     </div>
-                    <div class="feature feature-blurb-text">
-                        <h4 class="feature-title">Experienced Staff Available</h4>
-                        <div class="feature-content">
-                            <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+                    <div class="feature-block">
+                        <div class="feature feature-blurb-text">
+                            <h4 class="feature-title">Uvek na raspolaganju</h4>
+                            <div class="feature-content">
+                                <p>Integer nec nisi sed mi hendrerit mattis. Vestibulum mi nunc, ultricies quis vehicula et, iaculis in magnestibulum.</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="feature feature-blurb-text">
-                        <h4 class="feature-title">Low Price & Fees</h4>
-                        <div class="feature-content">
-                            <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                        <div class="feature feature-blurb-text">
+                            <h4 class="feature-title">Iskusno osoblje</h4>
+                            <div class="feature-content">
+                                <p>Aliquam sit amet mi eu libero fermentum bibendum pulvinar a turpis. Vestibulum quis feugiat risus. </p>
+                            </div>
+                        </div>
+                        <div class="feature feature-blurb-text">
+                            <h4 class="feature-title">Povoljne cene usluga</h4>
+                            <div class="feature-content">
+                                <p>Praesent eu sollicitudin nunc. Cras malesuada vel nisi consequat pretium. Integer auctor elementum nulla suscipit in.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -135,12 +144,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-<!--------- end forma under construction ----------->
 
 <div id="services">
     <div class="container-fluid" style="background-color: #f4f4f4; ">

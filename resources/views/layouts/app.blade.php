@@ -1,6 +1,7 @@
 @extends('layouts.head')
 
 
+
 @section('nav')
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container">
@@ -13,18 +14,20 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
 
-                <!-- Branding Image -->
-                <a href="#" class="navbar-left">
-                    <img src="{{ URL::asset('app/assets/img/logo2.png')}}">
-                </a>
+
             </div>
 
             <div class="collapse navbar-collapse" id="top-navbar-1">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+                    <!-- Branding Image -->
+                    <a href="#" class="navbar-left">
+                        <img src="{{ URL::asset('app/assets/img/logo2.png')}}">
+                    </a>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -65,24 +68,23 @@
             </div>
         </div>
     </nav>
-@endsection
+    @endsection
 
 
-@section('body')
+    @section('body')
     @yield('content')
 
-   <!-- Footer -->
+            <!-- Footer -->
     <footer>
-        <div class="container-fluid">
+        <div class="container">
             <div class="row">
+                <div id="logoImages">
 
-                logo
-                <div class="col-sm-12 footer-bottom">
-                    <a class="scroll-link" href="#top-content"><i class="fa fa-chevron-up"></i></a>
                 </div>
             </div>
         </div>
     </footer>
+
 
     <!-- Scripts -->
     <script src="{{URL:: asset('js/app.js') }}"></script>
@@ -91,15 +93,21 @@
     <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/jquery.backstretch.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/wow.min.js')}}"></script>
-
     <script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
     <script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
-    <script src="{{ URL::asset('app/assets/js/bootstrap-datepicker.js')}}"></script>
     <script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
     <!--[if lt IE 10]>
     <script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
     <![endif]-->
 
+    <!-- Datatimepicker -->
+    <script src="{{ URL::asset('app/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
+    <!--End Datatimepicker -->
+
     </body>
+
+
+
+
     </html>
 @endsection
