@@ -32,3 +32,7 @@ Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
 
 Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
+Route::get('/service');
+
+Route::get('/servise/add');
+

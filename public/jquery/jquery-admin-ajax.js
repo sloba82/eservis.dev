@@ -1,7 +1,7 @@
 var AdminAjax = {
 
 
-    updateField: function (Url, Param) {
+    updateField: function (Param) {
 
         $.ajaxSetup({
             headers: {
@@ -9,18 +9,18 @@ var AdminAjax = {
             }
         });
 
+console.log(Param['field']);
+
         $.ajax({
             type: 'POST',
-            url: Url,
+            url: Param['url'],
             dataType: 'json',
             data: {AppData: Param},
-            success: function () {
-                console.log('yesss');
+            success: function (data) {
+                console.log(data);
+
             }
         });
-
-        return 1;
-
     }
 
 

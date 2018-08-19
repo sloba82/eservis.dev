@@ -2,60 +2,66 @@
 
 
 @section('table')
+    <div class="container">
 
-      <div class="container">
+        <div class="row">
+            <table id="allresoult" class="display cell-border compact strip">
 
 
-        <table id="table_id" class="display">
-            <thead>
-            <tr>
-                <th>Zakazano</th>
-                <th>Ime</th>
-                <th>Prezime</th>
-                <th>Telefon</th>
-                <th>Model vozila</th>
-                <th>Komentar Servisa</th>
-                <th>Detalji / Izmeni</th>
-                <th>       </th>
-            </tr>
-            </thead>
-            <tbody>
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Zakazano</th>
+                    <th>Ime</th>
+                    <th>Prezime</th>
+                    <th>Telefon</th>
+                    <th>Model vozila</th>
+                    <th>Komentar Servisa</th>
+                    <th>Detalji / Izmeni</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
 
-            @if (count($allapointments->all()))
+                @if (count($allapointments->all()))
 
-                @foreach($allapointments->all() as $allapointment )
-                    <tr class=
-                          @if($allapointment->confirm)
-                            "confirm"
-                          @endif
+                    @foreach($allapointments->all() as $allapointment )
 
-                    >
-                        <td>{{str_limit($allapointment->appoitment, $limit = 16, $end ='' ) }} </td>
-                        <td>{{ $allapointment->name}} </td>
-                        <td>{{ $allapointment->last_name}} </td>
-                        <td>{{ $allapointment->phone}} </td>
-                        <td>{{ $allapointment->veh_make}} </td>
-                        <td>{{ str_limit( $allapointment->comment_admin, $limit = 20, $end = '...') }}</td>
-                        <td><a href="{{ url('/appoitment/showSingle/'. $allapointment->id ) }}">
-                             <button  type="button" class="btn btn-info btn-sm">Detalji / Izmeni</button>
-                            </a></td>
-                        <td><button
-                                    id="{{$allapointment->id}}"
-                                    type="button"
-                                    class="btn btn-success btn-sm"
-                                    @if($allapointment->confirm)
-                                      disabled
-                                    @endif
-                                    >Potvrdi</button>
-                        </td>
-                    </tr>
-                @endforeach
+                        @if ($allapointment->active == 1)
+                            <tr class="hover @if($allapointment->confirm) confirm @endif ">
+                                <td> {{$allapointment->id}}</td>
+                                <td>{{str_limit($allapointment->appoitment, $limit = 16, $end ='' ) }} </td>
+                                <td>{{ $allapointment->name}} </td>
+                                <td>{{ $allapointment->last_name}} </td>
+                                <td>{{ $allapointment->phone}} </td>
+                                <td>{{ $allapointment->veh_make}} </td>
+                                <td>{{ str_limit( $allapointment->comment_admin, $limit = 20, $end = '...') }}</td>
+                                <td><a href="{{ url('/appoitment/showSingle/'. $allapointment->id ) }}">
+                                        <button type="button" class="btn btn-info btn-sm">Detalji / Izmene</button>
+                                    </a></td>
+                                <td>
+                                    <button
+                                            id="{{$allapointment->id}}"
+                                            type="button"
+                                            data-action="confirm"
+                                            class="btn btn-success btn-sm"
+                                            @if($allapointment->confirm)
+                                            disabled
+                                            @endif
+                                            >Potvrdi
+                                    </button>
+                                </td>
+                            </tr>
+                        @endif
 
-            @endif
+                    @endforeach
 
-            </tbody>
-        </table>
-      </div>
+                @endif
+
+                </tbody>
+            </table>
+        </div>
+    </div>
 
 @endsection
 

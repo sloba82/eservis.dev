@@ -646,15 +646,15 @@ footer h3 {
 	background-color: #122b40;
 }
 /*table allResoult*/
-#table_id {
-
+#allresoult {
 	text-align: left;
 }
 
-#table_id td {
-	padding:  1px 10px 1px 5px ;
+#allresoult td {
+	padding:  2px 10px 2px 5px ;
 
 }
+
 
 
 .nofitication-head-of-page {
@@ -662,10 +662,6 @@ footer h3 {
 	padding: 10px;
 }
 
-.appointmentEdit input {
-	border: none;
-
-}
 
 .pTextLeft {
 	text-align: left;

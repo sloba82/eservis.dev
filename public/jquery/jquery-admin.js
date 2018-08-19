@@ -3,22 +3,36 @@ $(function() {
     $('#datetimepicker').datetimepicker({
     });
 
-
+    $('#allresoult').DataTable( {
+        order: [[ 0, "desc" ]],
+        columnDefs: [
+            {
+                targets: -1,
+                className: 'dt-body-right'
+            }
+        ],
+        search: {
+            "smart": true
+        }
+    } );
 
     $('button').on('click', function() {
-        var ButtonID = this.id;
-        if(ButtonID) {
-            var Url =  '/appoitment/ajaxConfirm';
+
+        if(this.id) {
             var Param = {
-                id : ButtonID
+                url : '/appoitment/ajaxConfirm',
+                id : this.id,
+                field : $(this).attr('data-action')
             };
 
-            if (AdminAjax.updateField(Url, Param)) {
-                $(this).attr('disabled', true);
-                $(this).closest('tr').addClass('confirm');
-            }
+
+            AdminAjax.updateField(Param);
+            $(this).attr('disabled', true);
+            $(this).closest('tr').addClass('confirm');
 
         }
     });
+
+
 
 });

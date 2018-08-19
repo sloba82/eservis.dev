@@ -49,7 +49,6 @@ class AppoitmentController extends Controller
 
         $params = $request->all();
 
-
         foreach ($params as $key => $value) {
             if ($value == null) {
                 return redirect('/');
@@ -62,10 +61,8 @@ class AppoitmentController extends Controller
             $user_id = 0;
         }
 
-
         $dateAndTime = str_replace("/", "-", $params['appoitment']);
         $dateAndTime .= ':00';
-
 
         $Appopitment = new Appoitment([
             'user_id' => $user_id,
@@ -130,12 +127,12 @@ class AppoitmentController extends Controller
             $request['appoitment'] = $dateAndTime;
         }
 
+        $request['confirm'] = intval($request['confirm']);
         $Appopitment = Appoitment::findOrFail($id);
         $Appopitment->update($request->all());
 
         return redirect('/appoitment/showAll');
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -152,14 +149,27 @@ class AppoitmentController extends Controller
 
     }
 
-
     public function ajaxConfirm(Request $request)
     {
 
         $id = $request['AppData']['id'];
+        $field = $request['AppData']['field'];
+
+        $value;
+        if ($request['AppData']['field'] == 'active'){
+            $value = 0;
+        }else{
+            $value = 1;
+        }
 
         $Appopitment = Appoitment::findOrFail($id);
-        $Appopitment->update(['confirm' => 1]);
+        $Appopitment->update([$field => $value]);
+
+        $data = 'test';
+        return response()->json([
+            'success' => true,
+            'data'   => $data,
+            ], 200);
 
     }
 }

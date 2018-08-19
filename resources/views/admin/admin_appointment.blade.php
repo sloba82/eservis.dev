@@ -120,11 +120,9 @@
 
         <!-- Footer -->
 <footer>
-    <div class="container">
-        <div class="row">
-            <div id="logoImages">
-
-            </div>
+    <div class="">
+        <div class="">
+footer
         </div>
     </div>
 </footer>
