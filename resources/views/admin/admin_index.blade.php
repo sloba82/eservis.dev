@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/animate.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/datetimepicker/jquery.datetimepicker.css')}}">
-    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/DataTables/datatables.css')}}">
 
