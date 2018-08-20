@@ -39,3 +39,7 @@ Route::get('/service', function () {
 Route::get('/service/search', function () {
     return view('/admin/admin_service-search');
 });
+
+Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+
+Route::Post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');

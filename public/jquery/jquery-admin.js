@@ -32,32 +32,55 @@ $(function () {
         }
     });
 
-    var availableTags = [
-        "ActionScript",
-        "AppleScript",
-        "Asp",
-        "BASIC",
-        "C",
-        "C++",
-        "Clojure",
-        "COBOL",
-        "ColdFusion",
-        "Erlang",
-        "Fortran",
-        "Groovy",
-        "Haskell",
-        "Java",
-        "JavaScript",
-        "Lisp",
-        "Perl",
-        "PHP",
-        "Python",
-        "Ruby",
-        "Scala",
-        "Scheme"
-    ];
+
+
+
+
+
+
     $( "#numberplate" ).autocomplete({
-        source: availableTags
+        autoFocus: true,
+        delay: 500,
+        position: { my : "right top", at: "right bottom" }
+    });
+
+    $( "#numberplate").on('change keypress focus', function(){
+
+
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        var term = $( "#numberplate").val();
+
+        var Param = {
+            term : term
+        };
+
+        $.ajax({
+            type: 'POST',
+            url: '/serviceautocomplate',
+            dataType: 'json',
+            data: {AppData: Param},
+            success: function (data) {
+
+            }
+        });
+
+        $.ajax('/serviceautocomplate', {
+            dataType: 'json',
+            type: 'get',
+            success: function(response) {
+
+                $( "#numberplate" ).autocomplete({
+                    source: response
+                });
+
+            }
+        });
+
     });
 
 

@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.theme.min.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.min.css')}}">
 
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/css/admin_style.css')}}">
+
 
 
 
