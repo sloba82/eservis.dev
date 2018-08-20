@@ -20,6 +20,14 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/DataTables/datatables.css')}}">
 
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.structure.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.theme.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.min.css')}}">
+
+
+
+
+
 
 </head>
 <body>
@@ -76,23 +84,15 @@
 @yield('content')
 
         <!-- Footer -->
-<footer>
-    <div class="">
-        <div class="">
-            footer
-        </div>
-    </div>
-</footer>
-
 
 <script src="{{ URL:: asset('js/app.js') }}"></script>
 <script src="{{ URL::asset('jquery/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
 <script src="{{ URL::asset('app/assets/DataTables/datatables.js') }}"></script>
 <script src="{{ URL::asset('app/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
+<script src="{{ URL::asset('app/assets/jquery-ui/jquery-ui.min.js')}}"></script>
 <script src="{{ URL::asset('jquery/jquery-admin.js')}}"></script>
 <script src="{{ URL::asset('jquery/jquery-admin-ajax.js')}}"></script>
-
 
 
 </body>

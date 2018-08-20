@@ -13,7 +13,8 @@ class ServiceController extends Controller
 
     }
 
-    public function search(){
+    public function autocompleteNumberPltes(){
+
 
     }
 }

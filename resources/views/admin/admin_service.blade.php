@@ -10,7 +10,8 @@
         </h3>
 
         <a href="{{ url('/service/search') }}">
-            dodaj vozilo
+            Dodaj vozilo u sevis <br>
+            <i class="fa fa-car fa-5x" aria-hidden="true"></i>
         </a>
 
         <br>
