@@ -1,7 +1,7 @@
 @extends('admin.admin_index')
 
 
-@section('table')
+@section('content')
     @if ($Appopitment->confirm == 1)
         <div class="nofitication-head-of-page">
             <h4>Zakazano za : {{$Appopitment->appoitment}} </h4>

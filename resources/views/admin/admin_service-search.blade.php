@@ -1,7 +1,7 @@
 @extends('admin.admin_index')
 
 
-@section('table')
+@section('content')
 
 
 

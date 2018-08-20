@@ -73,7 +73,7 @@
         </div>
     </div>
 </nav>
-@yield('table')
+@yield('content')
 
         <!-- Footer -->
 <footer>
