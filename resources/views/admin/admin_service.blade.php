@@ -31,28 +31,11 @@
 
 
 
-        <a href="{{ url('/service/search') }}">
-            <h4>
-            Dodaj vozilo u sevis
-            </h4>
-            <br>
-            <i class="fa fa-car fa-5x" aria-hidden="true"></i>
-        </a>
-
-        <br>
-
-        <a href="">
-            <h4>
-            sva vozila u servisu
-            </h4>
-        </a>
 
 
+ </div>
 
 
-       </div>
-
-</div>
 
 
 
