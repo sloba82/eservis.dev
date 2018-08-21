@@ -18,52 +18,18 @@
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/style.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/datetimepicker/jquery.datetimepicker.css')}}">
     <link rel="stylesheet" href="{{ URL::asset('app/assets/css/media-queries.css')}}">
-
-    <!-- Scripts -->
-    <script src="{{URL:: asset('js/app.js') }}"></script>
-
-    <script src="{{ URL::asset('app/assets/js/jquery-1.11.1.min.js')}}"></script>
-    <script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
-    <script src="{{ URL::asset('jquery/jquery-admin.js')}}"></script>
-    <script src="{{ URL::asset('jquery/jquery-admin-ajax.js')}}"></script>
-    <script src="{{ URL::asset('jquery/jquery-3.3.1.min.js') }}"></script>
-
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <!-- Favicon and touch icons -->
-    <link rel="shortcut icon" href="{{ URL::asset('app/assets/ico/favicon.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{{ URL::asset('app/assets/ico/apple-touch-icon-144-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="{{ URL::asset('app/assets/ico/apple-touch-icon-114-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="{{ URL::asset('app/assets/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed"
-          href="{{ URL::asset('app/assets/ico/apple-touch-icon-57-precomposed.png')}}">
-
-    <!--DATA TABLE -->
     <link rel="stylesheet" href="{{ URL::asset('app/assets/DataTables/datatables.css')}}">
-    <script src="{{ URL::asset('app/assets/DataTables/datatables.js') }}"></script>
-    <script>
-        $(document).ready(function () {
-            $('#table_id').DataTable(
-                    {
-                        responsive: true,
-                        rowGroup: {
-                            dataSrc: 'group'
-                        }
-                    }
-            );
 
-        });
-    </script>
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.structure.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.theme.min.css')}}">
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/jquery-ui/jquery-ui.min.css')}}">
+
+    <link rel="stylesheet" href="{{ URL::asset('app/assets/css/admin_style.css')}}">
+
+
+
+
+
 
 </head>
 <body>
@@ -96,6 +62,7 @@
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
                 <li><a href={{ url('/appoitment/showAll') }}>Sva Zakazivanja</a></li>
+                <li><a href={{ url('/service') }}>Servis</a></li>
                 <li><a href="#portfolio">Work</a></li>
                 <li><a href="#testimonials">Clients</a></li>
                 <li><a href="#footer">Contact</a></li>
@@ -116,19 +83,19 @@
         </div>
     </div>
 </nav>
-@yield('table')
+@yield('content')
 
         <!-- Footer -->
-<footer>
-    <div class="">
-        <div class="">
-footer
-        </div>
-    </div>
-</footer>
-<!-- Datatimepicker -->
+
+<script src="{{ URL:: asset('js/app.js') }}"></script>
+<script src="{{ URL::asset('jquery/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ URL::asset('app/assets/bootstrap/js/bootstrap.min.js')}}"></script>
+<script src="{{ URL::asset('app/assets/DataTables/datatables.js') }}"></script>
 <script src="{{ URL::asset('app/assets/datetimepicker/build/jquery.datetimepicker.full.min.js')}}"></script>
-<!--End Datatimepicker -->
+<script src="{{ URL::asset('app/assets/jquery-ui/jquery-ui.min.js')}}"></script>
+<script src="{{ URL::asset('jquery/jquery-admin.js')}}"></script>
+<script src="{{ URL::asset('jquery/jquery-admin-ajax.js')}}"></script>
+
 
 </body>
 </html>

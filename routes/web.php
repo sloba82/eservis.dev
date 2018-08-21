@@ -32,7 +32,14 @@ Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
 
 Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
-Route::get('/service');
+Route::get('/service', function () {
+    return view('/admin/admin_service');
+});
 
-Route::get('/service/add');
+Route::get('/service/search', function () {
+    return view('/admin/admin_service-search');
+});
 
+Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+
+Route::Post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');

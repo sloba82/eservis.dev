@@ -1,7 +1,7 @@
-@extends('admin/admin_appointment')
+@extends('admin.admin_index')
 
 
-@section('table')
+@section('content')
     @if ($Appopitment->confirm == 1)
         <div class="nofitication-head-of-page">
             <h4>Zakazano za : {{$Appopitment->appoitment}} </h4>
@@ -48,7 +48,6 @@
                     </div>
                     <div class="form-group">
                     </div>
-                    {{--  @if ($Appopitment->confirm == 0)--}}
                     <div class="form-group">
                         <label class="col-lg-4 pull-left control-label">Zakazano za:</label>
 
@@ -57,7 +56,6 @@
                                    value="{{$Appopitment->appoitment}}">
                         </div>
                     </div>
-                    {{--   @endif--}}
                     <div class="form-group">
                         <label class="col-lg-3 pull-left control-label">Model vozila:</label>
 
@@ -185,10 +183,11 @@
                     <input type="reset" class="btn btn-secondary btn-lg btn-block" value="Ponisti / Resetuj">
                 </div>
                 <div class="col-md-4">
-               {{--     <a href="{{ url('/appoitment/showAll') }}">--}}
-                        <button id="{{$Appopitment->id}}" type="button" data-action="active" class="btn btn-danger btn-lg btn-block delete">Obrisi zakazivanje</button>
-               {{--     </a>--}}
-
+                    <a href="{{ url('/appoitment/showAll') }}">
+                        <button id="{{$Appopitment->id}}" type="button" data-action="active"
+                                class="btn btn-danger btn-lg btn-block delete">Obrisi zakazivanje
+                        </button>
+                    </a>
                 </div>
             </div>
 
