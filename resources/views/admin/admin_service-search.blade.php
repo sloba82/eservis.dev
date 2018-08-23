@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="container">
-<form>
+<form method="post"  role="form" action="/service-search" >
     {{ csrf_field() }}
 
     <div class="row">
@@ -12,7 +12,7 @@
                 <label class="control-label">Tablice Vozila:</label>
             </div>
             <div class="col-sm-4">
-                <input id="numberplate" class="form-control pull-left text-uppercase" type="text" name="numberplate" autocomplete="off">
+                <input id="numberplate" class="form-control pull-left text-uppercase numberplate" type="text" name="numberplate" autocomplete="off">
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Car;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use App\Car_user;
 
 class ServiceController extends Controller
 {
@@ -30,5 +31,67 @@ class ServiceController extends Controller
         }
 
         return response()->json($numberPlate);
+    }
+
+
+    public function carInServiceOrCreateNewCar(Request $request){
+
+        $numberplate = $request['numberplate'];
+        $plateID = $this->plateHasUser($numberplate);
+        if ($plateID){
+
+            $addCar = array(
+                'plateID' => $plateID,
+                'numberplate' => strtoupper($numberplate)
+            );
+            return view('/admin/admin_service-add', compact('addCar'));
+
+        } else {
+            // ovde ce morati da se kreira novi user ako ne postiji
+            // sto znaci previ se novi auto complete za listanje usera
+
+
+            $numberplate = str_replace(' ', '', $numberplate);
+            $newCar = array (
+                'numberplate' => strtoupper($numberplate)
+            );
+
+            return view('/admin/admin_service-createCar' , compact('newCar'));
+        }
+    }
+
+    public function plateHasUser ($param) {
+
+        $numberplate = $param;
+        $plates = DB::table('cars')
+            ->select('id')
+            ->where('numberplate',  $numberplate)
+            ->limit(1)
+            ->get();
+
+        $plateID ='';
+        foreach ($plates as $plate) {
+            $plateID = $plate->id;
+        }
+        if ($plateID) {
+            return $plateID;
+        }
+        else{
+            return 0;
+        }
+
+    }
+
+
+    public function serviceAdd ( $carID, $serviceMan, $serviceStatus ) {
+        $id = DB::table('services')->insertGetId(
+            [
+                'car_id' => $carID,
+                'service_man' => $serviceMan,
+                'service_status' => $serviceStatus
+            ]
+        );
+
+        return $id;
     }
 }

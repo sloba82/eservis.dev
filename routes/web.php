@@ -43,3 +43,6 @@ Route::get('/service/search', function () {
 Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
 
 Route::Post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+
+Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
+
