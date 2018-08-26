@@ -17,11 +17,12 @@ class ServiceController extends Controller
 
     }
 
-    public function autocompleteNumberPlates(Request $request){
+    public function autocompleteNumberPlates(Request $request)
+    {
 
-        $value =$request['AppData']['term'];
+        $value = $request['AppData']['term'];
         $Cars = DB::table('cars')
-            ->where('numberplate', 'like', '%'.$value.'%')
+            ->where('numberplate', 'like', '%' . $value . '%')
             ->limit(5)
             ->get();
 
@@ -34,16 +35,32 @@ class ServiceController extends Controller
     }
 
 
-    public function carInServiceOrCreateNewCar(Request $request){
+    public function carInServiceOrCreateNewCar(Request $request)
+    {
 
         $numberplate = $request['numberplate'];
         $plateID = $this->plateHasUser($numberplate);
-        if ($plateID){
+        if ($plateID) {
+
+
+            //hardkodovani podaci
+            $serviceMan = 'test';
+            $serviceStatus = 'new';
+            $serviceID = $this->serviceAdd($plateID, $serviceMan, $serviceStatus);
+
+            $car = $this->carByID($plateID);
 
             $addCar = array(
-                'plateID' => $plateID,
-                'numberplate' => strtoupper($numberplate)
+                'plateID'     => $plateID,
+                'numberplate' => strtoupper($numberplate),
+                'serviceID'   => $serviceID,
+                'make'        => $car->make,
+                'model'       => $car->model,
+                'engine'      => $car->engine,
+                'year'        => $car->year,
+
             );
+
             return view('/admin/admin_service-add', compact('addCar'));
 
         } else {
@@ -52,38 +69,48 @@ class ServiceController extends Controller
 
 
             $numberplate = str_replace(' ', '', $numberplate);
-            $newCar = array (
+            $newCar = array(
                 'numberplate' => strtoupper($numberplate)
             );
 
-            return view('/admin/admin_service-createCar' , compact('newCar'));
+            return view('/admin/admin_service-createCar', compact('newCar'));
         }
     }
 
-    public function plateHasUser ($param) {
+    public function plateHasUser($param)
+    {
 
         $numberplate = $param;
         $plates = DB::table('cars')
             ->select('id')
-            ->where('numberplate',  $numberplate)
+            ->where('numberplate', $numberplate)
             ->limit(1)
             ->get();
 
-        $plateID ='';
+        $plateID = '';
         foreach ($plates as $plate) {
             $plateID = $plate->id;
         }
         if ($plateID) {
             return $plateID;
-        }
-        else{
+        } else {
             return 0;
         }
 
     }
 
+    public function carByID($id)
+    {
 
-    public function serviceAdd ( $carID, $serviceMan, $serviceStatus ) {
+        $car = DB::table('cars')
+            ->where('id', $id)
+            ->first();
+
+        return $car;
+    }
+
+    public function serviceAdd($carID, $serviceMan, $serviceStatus)
+    {
         $id = DB::table('services')->insertGetId(
             [
                 'car_id' => $carID,
