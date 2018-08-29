@@ -46,14 +46,14 @@ class ServiceController extends Controller
             //hardkodovani podaci
             $serviceMan = 'test';
             $serviceStatus = 'new';
-           /* $serviceID = $this->serviceAdd($plateID, $serviceMan, $serviceStatus);*/
+            $serviceID = $this->serviceAdd($plateID, $serviceMan, $serviceStatus);
 
             $car = $this->carByID($plateID);
 
             $addCar = array(
                 'plateID'     => $plateID,
                 'numberplate' => strtoupper($numberplate),
-       /*         'serviceID'   => $serviceID,*/
+                'serviceID'   => $serviceID,
                 'make'        => $car->make,
                 'model'       => $car->model,
                 'engine'      => $car->engine,
