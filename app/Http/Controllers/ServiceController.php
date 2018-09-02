@@ -38,22 +38,16 @@ class ServiceController extends Controller
     public function carInServiceOrCreateNewCar(Request $request)
     {
 
+        redirect('/admin/admin_service-add');
         $numberplate = $request['numberplate'];
-        $plateID = $this->plateHasUser($numberplate);
-        if ($plateID) {
+        $carID = $this->plateHasUser($numberplate);
+        if ($carID) {
 
-
-            //hardkodovani podaci
-            $serviceMan = 'test';
-            $serviceStatus = 'new';
-            $serviceID = $this->serviceAdd($plateID, $serviceMan, $serviceStatus);
-
-            $car = $this->carByID($plateID);
-
+            $car = $this->carByID($carID);
             $addCar = array(
-                'plateID'     => $plateID,
+                'carID'     => $carID,
                 'numberplate' => strtoupper($numberplate),
-                'serviceID'   => $serviceID,
+           /*     'serviceID'   => $serviceID,*/
                 'make'        => $car->make,
                 'model'       => $car->model,
                 'engine'      => $car->engine,
@@ -61,13 +55,11 @@ class ServiceController extends Controller
 
             );
 
-            
             return view('/admin/admin_service-add', compact('addCar'));
 
         } else {
             // ovde ce morati da se kreira novi user ako ne postiji
             // sto znaci previ se novi auto complete za listanje usera
-
 
             $numberplate = str_replace(' ', '', $numberplate);
             $newCar = array(
@@ -110,16 +102,41 @@ class ServiceController extends Controller
         return $car;
     }
 
-    public function serviceAdd($carID, $serviceMan, $serviceStatus)
+    public function serviceAdd($carID, $serviceMan, $serviceStatus, $description)
     {
         $id = DB::table('services')->insertGetId(
             [
                 'car_id' => $carID,
                 'service_man' => $serviceMan,
-                'service_status' => $serviceStatus
+                'service_status' => $serviceStatus,
+                'description' => $description,
             ]
         );
 
         return $id;
     }
+
+
+    public function serviceCarAdd(Request $request)
+    {
+
+        $serviceMan = 'test';
+        $serviceStatus = 'new';
+        $carID = $request['carID'];
+        $description = $request['description'];
+        $serviceID= $this->serviceAdd($carID, $serviceMan, $serviceStatus, $description);
+
+
+        if ($request['saveServiceAddPhoto'] == 'Dodaj Fotografije') {
+            return 'saveServiceAddPhoto';
+        }
+
+        if ($request['saveService'] == 'Sacuvaj') {
+            return 'Sacuvaj';
+        }
+
+
+
+    }
+
 }

@@ -10,7 +10,6 @@
 
             <div class="col text-center">
                 <h2>Servis</h2>
-                <p>counter to count up to a target number</p>
             </div>
 
 
