@@ -18,6 +18,8 @@ class CreateServicesTable extends Migration
             $table->integer('car_id');
             $table->string('service_man');
             $table->string('service_status');
+            $table->string('kilometer');
+            $table->string('service_date');
             $table->string('description');
             $table->timestamps();
         });

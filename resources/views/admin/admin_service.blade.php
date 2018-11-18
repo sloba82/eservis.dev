@@ -12,7 +12,6 @@
                 <h2>Servis</h2>
             </div>
 
-
         </div>
         <div class="row text-center">
 
@@ -22,22 +21,8 @@
                     <i class="fa fa-car fa-2x"></i>
                     <h2 ></h2>
                     <p class="count-text ">Dodaj vozilo u sevis</p>
-
             </a>
          </div>
-
-
-
-
-
-
-
  </div>
-
-
-
-
-
-
 
 @endsection

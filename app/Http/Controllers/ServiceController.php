@@ -42,7 +42,6 @@ class ServiceController extends Controller
         $numberplate = $request['numberplate'];
         $carID = $this->plateHasUser($numberplate);
         if ($carID) {
-
             $car = $this->carByID($carID);
             $addCar = array(
                 'carID'     => $carID,
@@ -102,14 +101,16 @@ class ServiceController extends Controller
         return $car;
     }
 
-    public function serviceAdd($carID, $serviceMan, $serviceStatus, $description)
+    public function serviceAdd($carID, $serviceMan, $kilometer, $service_date, $serviceStatus, $description)
     {
         $id = DB::table('services')->insertGetId(
             [
-                'car_id' => $carID,
-                'service_man' => $serviceMan,
+                'car_id'         => $carID,
+                'service_man'    => $serviceMan,
                 'service_status' => $serviceStatus,
-                'description' => $description,
+                'kilometer'      => $kilometer,
+                'service_date'   => $service_date,
+                'description'    => $description,
             ]
         );
 
@@ -123,10 +124,15 @@ class ServiceController extends Controller
         $serviceMan = 'test';
         $serviceStatus = 'new';
         $carID = $request['carID'];
+        $kilometer = $request['kilometer'];
+        $service_date = $request['service_date'];
         $description = $request['description'];
-        $serviceID= $this->serviceAdd($carID, $serviceMan, $serviceStatus, $description);
+        $serviceID= $this->serviceAdd($carID, $serviceMan, $kilometer, $service_date, $serviceStatus, $description);
+
+        var_dump($serviceID);
 
 
+/*
         if ($request['saveServiceAddPhoto'] == 'Dodaj Fotografije') {
             return 'saveServiceAddPhoto';
         }
@@ -134,9 +140,11 @@ class ServiceController extends Controller
         if ($request['saveService'] == 'Sacuvaj') {
             return 'Sacuvaj';
         }
-
-
+*/
 
     }
+
+
+
 
 }
