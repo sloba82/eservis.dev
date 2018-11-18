@@ -16,7 +16,6 @@ class UsersSeeder extends Seeder
             'name' => 'admin',
             'email' => 'admin@admin.com',
             'password' =>  md5('admin'),
-            'role' => 1,
             'created_at' => '2018-02-18 01:20:44',
             'updated_at' => '2018-02-18 01:20:44',
         ]);

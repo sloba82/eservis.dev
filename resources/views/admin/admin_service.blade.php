@@ -10,9 +10,7 @@
 
             <div class="col text-center">
                 <h2>Servis</h2>
-                <p>counter to count up to a target number</p>
             </div>
-
 
         </div>
         <div class="row text-center">
@@ -23,22 +21,8 @@
                     <i class="fa fa-car fa-2x"></i>
                     <h2 ></h2>
                     <p class="count-text ">Dodaj vozilo u sevis</p>
-
-           </a>
+            </a>
          </div>
-
-
-
-
-
-
-
  </div>
-
-
-
-
-
-
 
 @endsection

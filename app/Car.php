@@ -13,4 +13,12 @@ class Car extends Model
     ];
 
 
+    public function cars (){
+
+
+        return $this->hasMany('App\Car');
+
+
+    }
+
 }
