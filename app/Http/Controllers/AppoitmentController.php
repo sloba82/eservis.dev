@@ -49,12 +49,6 @@ class AppoitmentController extends Controller
 
         $params = $request->all();
 
-        foreach ($params as $key => $value) {
-            if ($value == null) {
-                return redirect('/');
-            }
-        }
-
         if (Auth::user()) {
             $user_id = Auth::user()->id;
         } else {
