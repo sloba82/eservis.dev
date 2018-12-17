@@ -129,7 +129,7 @@ class ServiceController extends Controller
         $description = $request['description'];
         $serviceID= $this->serviceAdd($carID, $serviceMan, $kilometer, $service_date, $serviceStatus, $description);
 
-        var_dump($serviceID);
+
 
 
 /*
