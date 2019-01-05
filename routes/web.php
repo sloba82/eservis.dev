@@ -19,32 +19,28 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::middleware(['auth', 'roles:admin'])->group(function () {
+    Route::get('/appoitment/showAll', 'AppoitmentController@showAll');
+    Route::post('/appoitment', 'AppoitmentController@store');
+    Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
+    Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
+    Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
+    Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
-Route::post('/appoitment', 'AppoitmentController@store');
+    Route::get('/service/search', function () {
+        return view('/admin/admin_service-search');
+    });
+    Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+    Route::post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+    Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
+    Route::post('/service-addcar', 'ServiceController@serviceCarAdd');
 
-Route::get('/appoitment/showAll', 'AppoitmentController@showAll');
 
-Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
-
-Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
-
-Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
-
-Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
-
-Route::get('/service', function () {
-    return view('/admin/admin_service');
 });
 
-Route::get('/service/search', function () {
-    return view('/admin/admin_service-search');
+Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
+    Route::get('/service', function () {
+        return view('/admin/admin_service');
+    });
+
 });
-
-Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
-
-Route::post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
-
-Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
-
-Route::post('/service-addcar', 'ServiceController@serviceCarAdd');
-

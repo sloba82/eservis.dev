@@ -148,20 +148,20 @@ class AppoitmentController extends Controller
 
         $id = $request['AppData']['id'];
 
-        if ($request['AppData']['field'] == 'active'){
+        if ($request['AppData']['field'] == 'active') {
             $value = 0;
-        }else{
+        } else {
             $value = 1;
         }
 
-        if($request['AppData']['field']) {
+        if ($request['AppData']['field']) {
             $Appopitment = Appoitment::findOrFail($id);
-            $Appopitment->update([$request['AppData']['field']=> $value]);
+            $Appopitment->update([$request['AppData']['field'] => $value]);
 
             $data = 'test';
             return response()->json([
                 'success' => true,
-                'data'   => $data,
+                'data' => $data,
             ], 200);
         }
 
