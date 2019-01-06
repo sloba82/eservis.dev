@@ -27,20 +27,19 @@ Route::middleware(['auth', 'roles:admin'])->group(function () {
     Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
     Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
-    Route::get('/service/search', function () {
-        return view('/admin/admin_service-search');
-    });
-    Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
-    Route::post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
-    Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
-    Route::post('/service-addcar', 'ServiceController@serviceCarAdd');
-
-
 });
 
 Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
     Route::get('/service', function () {
         return view('/admin/admin_service');
     });
+    Route::post('/service-addcar', 'ServiceController@serviceCarAdd');
+    Route::get('/service/search', function () {
+        return view('/admin/admin_service-search');
+    });
+    Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+    Route::post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+    Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
+
 
 });

@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class CarUserSeed extends Seeder
+class CarUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
