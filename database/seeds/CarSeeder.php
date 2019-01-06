@@ -12,16 +12,19 @@ class CarSeeder extends Seeder
     public function run()
     {
         //
-            DB::table('cars')->insert([
-                'numberplate' => 'NS222JT',
-                'make' => 'vw',
-                'model' => 'Golf',
-                'engine' =>'1.6',
-                'year' => '2006',
-                'created_at' => '2018-02-18 01:20:44',
-                'updated_at' => '2018-02-18 01:20:44',
+         for ($x = 0; $x <= 1000; $x++) {
+             DB::table('cars')->insert([
+                 'numberplate' => 'NS'.$x.'JT',
+                 'make' => 'vw',
+                 'model' => 'Golf',
+                 'engine' => '1.6',
+                 'year' => '2006',
+                 'mileage' => '125000',
+                 'created_at' => '2018-02-18 01:20:44',
+                 'updated_at' => '2018-02-18 01:20:44',
 
-            ]);
+             ]);
+         }
 
     }
 }

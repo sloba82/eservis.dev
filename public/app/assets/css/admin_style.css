@@ -740,7 +740,32 @@ body{
 }
 
 .fa{
-    color:#4183D7;
+    color:#ffffff;
 }
+
+.padding10 {
+    padding: 10px;
+}
+
+.margineBottom10 {
+    margin-bottom: 10px;
+}
+
+.borderColorMargin {
+    border: solid 1px grey;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #dee2e8;
+    margin-bottom: 20px;
+}
+
+.borderMargin {
+    border: solid 1px;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+
 
 /*END SERVICE INDEX*/

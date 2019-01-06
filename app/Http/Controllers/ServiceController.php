@@ -7,6 +7,8 @@ use App\Car;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use App\Car_user;
+use App\Repository\Services;
+use App\UserRole;
 
 class ServiceController extends Controller
 {
@@ -23,7 +25,7 @@ class ServiceController extends Controller
         $value = $request['AppData']['term'];
         $Cars = DB::table('cars')
             ->where('numberplate', 'like', '%' . $value . '%')
-            ->limit(5)
+            ->limit(10)
             ->get();
 
         $numberPlate = array();
@@ -46,11 +48,11 @@ class ServiceController extends Controller
             $addCar = array(
                 'carID'     => $carID,
                 'numberplate' => strtoupper($numberplate),
-           /*     'serviceID'   => $serviceID,*/
                 'make'        => $car->make,
                 'model'       => $car->model,
                 'engine'      => $car->engine,
                 'year'        => $car->year,
+                'mileage'     => $car->mileage,
 
             );
 
@@ -101,46 +103,33 @@ class ServiceController extends Controller
         return $car;
     }
 
-    public function serviceAdd($carID, $serviceMan, $kilometer, $service_date, $serviceStatus, $description)
-    {
-        $id = DB::table('services')->insertGetId(
-            [
-                'car_id'         => $carID,
-                'service_man'    => $serviceMan,
-                'service_status' => $serviceStatus,
-                'kilometer'      => $kilometer,
-                'service_date'   => $service_date,
-                'description'    => $description,
-            ]
-        );
 
-        return $id;
-    }
 
 
     public function serviceCarAdd(Request $request)
     {
 
-        $serviceMan = 'test';
-        $serviceStatus = 'new';
-        $carID = $request['carID'];
-        $kilometer = $request['kilometer'];
-        $service_date = $request['service_date'];
-        $description = $request['description'];
-        $serviceID= $this->serviceAdd($carID, $serviceMan, $kilometer, $service_date, $serviceStatus, $description);
+        $services = new Services\ServicesRepository();
+
+        $user = $request->user();
+        $request = $request->all();
+        $request['service_man'] = $user->name;
 
 
+        $serviceID = $services->serviceAdd($request);
+
+        if ($serviceID) {
+
+            $role = UserRole::find($user->role);
+
+            if($role->name == 'serviceman'){
+               return redirect('/service');
+            }
 
 
-/*
-        if ($request['saveServiceAddPhoto'] == 'Dodaj Fotografije') {
-            return 'saveServiceAddPhoto';
         }
 
-        if ($request['saveService'] == 'Sacuvaj') {
-            return 'Sacuvaj';
-        }
-*/
+
 
     }
 
