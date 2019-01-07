@@ -12,9 +12,10 @@ class CarSeeder extends Seeder
     public function run()
     {
         //
-         for ($x = 0; $x <= 1000; $x++) {
+         for ($x = 0; $x <= 99; $x++) {
              DB::table('cars')->insert([
-                 'numberplate' => 'NS'.$x.'JT',
+                 'user_id' => 1,
+                 'numberplate' => 'NS0'.$x.'JT',
                  'make' => 'vw',
                  'model' => 'Golf',
                  'engine' => '1.6',
