@@ -41,5 +41,7 @@ Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
     Route::post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
     Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
 
+    Route::get('/service-editcar/{id}', 'ServiceController@serviceCarEdit' );
+
 
 });

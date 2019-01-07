@@ -58,6 +58,7 @@ class ServiceController extends Controller
 
             return view('/admin/admin_service-add', compact('addCar'));
 
+
         } else {
             // ovde ce morati da se kreira novi user ako ne postiji
             // sto znaci previ se novi auto complete za listanje usera
@@ -95,7 +96,6 @@ class ServiceController extends Controller
 
     public function carByID($id)
     {
-
         $car = DB::table('cars')
             ->where('id', $id)
             ->first();
@@ -103,21 +103,15 @@ class ServiceController extends Controller
         return $car;
     }
 
-
-
-
     public function serviceCarAdd(Request $request)
     {
-
         $services = new Services\ServicesRepository();
 
         $user = $request->user();
         $request = $request->all();
         $request['service_man'] = $user->name;
 
-
         $serviceID = $services->serviceAdd($request);
-
         if ($serviceID) {
 
             $role = UserRole::find($user->role);
@@ -125,15 +119,21 @@ class ServiceController extends Controller
             if($role->name == 'serviceman'){
                return redirect('/service');
             }
-
-
+            elseif ($role->name == 'admin') {
+               return redirect('/service-editcar/'.$serviceID);
+            }
+            else {
+                return redirect('home');
+            }
         }
-
-
-
     }
 
+    public function serviceCarEdit ($id){
+        $services = new Services\ServicesRepository();
+        $id = $services->serviceEdit($id);
 
+        return view('/admin/admin_service-edit', compact('id'));
+    }
 
 
 }

@@ -4,6 +4,9 @@
 @section('content')
 
 
+
+
+
     <div class="container">
         <div class="row">
             <div class="col-sm-12 text-left">
@@ -40,32 +43,32 @@
                 <div class="row">
                     <div class="col-md-2">
                         <label for="numberplate">Broj tablica:</label>
-                        <input name="numberplate" type="text" class="form-control" id="numberplate"
+                        <input name="numberplate" type="text" class="form-control input-sm" id="numberplate"
                                value="{{$addCar['numberplate']}}" disabled>
                     </div>
                     <div class="col-md-2">
                         <label for="make">Marka vozila:</label>
-                        <input name="make" type="text" class="form-control" id="make" value="{{$addCar['make']}}"
+                        <input name="make" type="text" class="form-control input-sm" id="make" value="{{$addCar['make']}}"
                                disabled>
                     </div>
                     <div class="col-md-2">
                         <label for="model">Model vozila:</label>
-                        <input name="model" type="text" class="form-control" id="model" value="{{$addCar['model']}}"
+                        <input name="model" type="text" class="form-control input-sm" id="model" value="{{$addCar['model']}}"
                                disabled>
                     </div>
                     <div class="col-md-2">
                         <label for="engine">Motor:</label>
-                        <input name="engine" type="text" class="form-control" id="engine" value="{{$addCar['engine']}}"
+                        <input name="engine" type="text" class="form-control input-sm" id="engine" value="{{$addCar['engine']}}"
                                disabled>
                     </div>
                     <div class="col-md-2">
                         <label for="year">Godina:</label>
-                        <input name="year" type="text" class="form-control" id="year" value="{{$addCar['year']}}"
+                        <input name="year" type="text" class="form-control input-sm" id="year" value="{{$addCar['year']}}"
                                disabled>
                     </div>
                     <div class="col-md-2">
                         <label for="mileage">Kilometri:</label>
-                        <input name="mileage" type="text" class="form-control" id="mileage"
+                        <input name="mileage" type="text" class="form-control input-sm" id="mileage"
                                value="{{$addCar['mileage']}}" disabled>
                     </div>
                 </div>
@@ -78,9 +81,9 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-2">
+                    <div class="col-md-4">
                         <label for="kilometer">Kilometri Novi:</label>
-                        <input name="kilometer" type="number" class="form-control" id="kilometer" required>
+                        <input name="kilometer" type="number" class="form-control input-lg" id="kilometer" required>
                     </div>
 
                 </div>
@@ -92,7 +95,7 @@
                                 rows="4"
                                 name="description"
                                 type="text"
-                                class="form-control"
+                                class="form-control input-lg"
                                 id="description"
                                 required>
                         </textarea>

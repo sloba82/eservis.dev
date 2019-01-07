@@ -16,9 +16,6 @@ class Car_user extends Model
 
     public function cars (){
 
-
         return $this->belongsToMany('App\Car');
-
-
     }
 }
