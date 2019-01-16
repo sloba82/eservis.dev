@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Car;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use App\Car_user;
+use App\CarUser;
 use App\Repository\Services;
 use App\UserRole;
 

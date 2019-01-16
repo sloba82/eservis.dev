@@ -8,4 +8,10 @@ class Service extends Model
 {
     protected $table = 'services';
 
+
+
+    public function serviceCar()
+    {
+        return $this->belongsTo('App\Car');
+    }
 }

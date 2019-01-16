@@ -45,3 +45,9 @@ Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
 
 
 });
+
+
+Route::get('/card-reader/{data}', 'CardReaderController@cardReared');
+
+
+
