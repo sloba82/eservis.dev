@@ -2,8 +2,7 @@
 
 namespace App\Repository\Services;
 
-
-use App\Car;
+use App\Service;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
@@ -35,16 +34,12 @@ class ServicesRepository
 
     public function serviceEdit ($id) {
 
+        $service = Service::find($id);  // vraca servis pod id
+        $service->serviceCar; // vraca podatke iz car tabele prema id
 
-        $users = DB::select('SELECT  ser.service_man, ser.service_status, ser.kilometer, ser.description, ser.created_at, us.name, us.email, us.phone
-FROM services ser, users us
-JOIN   car_users cu
-ON us.id = cu.user_id
-WHERE ser.id = ?', [$id]);
+        
 
-
-
-        return $users;
+        return $id;
 
     }
 

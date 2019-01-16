@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Car_user extends Model
+class CarUser extends Model
 {
     protected $table = 'car_users';
 
@@ -14,8 +14,5 @@ class Car_user extends Model
     ];
 
 
-    public function cars (){
 
-        return $this->belongsToMany('App\Car');
-    }
 }
