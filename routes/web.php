@@ -37,7 +37,7 @@ Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
     Route::get('/service/search', function () {
         return view('/admin/admin_service-search');
     });
-    Route::get('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
+    Route::get('/getServiceautocomplate', 'ServiceController@autocompleteNumberPlates');
     Route::post('/serviceautocomplate', 'ServiceController@autocompleteNumberPlates');
     Route::post('/service-search', 'ServiceController@carInServiceOrCreateNewCar');
 
@@ -47,7 +47,7 @@ Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
 });
 
 
-Route::get('/card-reader/{data}', 'CardReaderController@cardReared');
+Route::get('/card-reader/{data}', 'CardReaderController@getCardReader');
 
 
 

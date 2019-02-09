@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use App\CarUser;
 use App\Repository\Services;
 use App\UserRole;
+use App\Repository\Car\CarRepository;
 
 class ServiceController extends Controller
 {
@@ -39,20 +40,19 @@ class ServiceController extends Controller
 
     public function carInServiceOrCreateNewCar(Request $request)
     {
+        $carPlate = new CarRepository();
 
-        redirect('/admin/admin_service-add');
-        $numberplate = $request['numberplate'];
-        $carID = $this->plateHasUser($numberplate);
+        $carID = $carPlate->plateHasUser($request['numberplate']);
         if ($carID) {
             $car = $this->carByID($carID);
             $addCar = array(
-                'carID'     => $carID,
-                'numberplate' => strtoupper($numberplate),
-                'make'        => $car->make,
-                'model'       => $car->model,
-                'engine'      => $car->engine,
-                'year'        => $car->year,
-                'mileage'     => $car->mileage,
+                'carID' => $carID,
+                'numberplate' => strtoupper($request['numberplate']),
+                'make' => $car->make,
+                'model' => $car->model,
+                'engine' => $car->engine,
+                'year' => $car->year,
+                'mileage' => $car->mileage,
 
             );
 
@@ -63,7 +63,7 @@ class ServiceController extends Controller
             // ovde ce morati da se kreira novi user ako ne postiji
             // sto znaci previ se novi auto complete za listanje usera
 
-            $numberplate = str_replace(' ', '', $numberplate);
+            $numberplate = str_replace(' ', '', $request['numberplate']);
             $newCar = array(
                 'numberplate' => strtoupper($numberplate)
             );
@@ -72,27 +72,7 @@ class ServiceController extends Controller
         }
     }
 
-    public function plateHasUser($param)
-    {
 
-        $numberplate = $param;
-        $plates = DB::table('cars')
-            ->select('id')
-            ->where('numberplate', $numberplate)
-            ->limit(1)
-            ->get();
-
-        $plateID = '';
-        foreach ($plates as $plate) {
-            $plateID = $plate->id;
-        }
-        if ($plateID) {
-            return $plateID;
-        } else {
-            return 0;
-        }
-
-    }
 
     public function carByID($id)
     {
@@ -116,19 +96,18 @@ class ServiceController extends Controller
 
             $role = UserRole::find($user->role);
 
-            if($role->name == 'serviceman'){
-               return redirect('/service');
-            }
-            elseif ($role->name == 'admin') {
-               return redirect('/service-editcar/'.$serviceID);
-            }
-            else {
+            if ($role->name == 'serviceman') {
+                return redirect('/service');
+            } elseif ($role->name == 'admin') {
+                return redirect('/service-editcar/' . $serviceID);
+            } else {
                 return redirect('home');
             }
         }
     }
 
-    public function serviceCarEdit ($id){
+    public function serviceCarEdit($id)
+    {
         $services = new Services\ServicesRepository();
         $id = $services->serviceEdit($id);
 

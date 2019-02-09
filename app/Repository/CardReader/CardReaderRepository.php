@@ -2,63 +2,70 @@
 
 namespace App\Repository\CardReader;
 
-use App\Service;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
-
-
-
+use App\User;
+use App\CardReader;
+use App\Repository\Car\CarRepository;
 
 class CardReaderRepository
 {
 
-    protected $data;
+    private $data;
+    private $rawCardData;
 
 
-    public function __construct( $data ) {
+    public function __construct($data)
+    {
+        $this->data = $this->cardReaderDataToArray($data);
+        $this->rawCardData = $data;
 
-
-        $this->data = $this->cardReaderData($data);
     }
 
 
-
-    public function cardReaderData($data) {
-        
-        $data = str_replace('{','', $data);
-        $data = str_replace('}','', $data);
-        $data = str_replace(',,,',',', $data);
-        $data = str_replace('VehicleData:','', $data);
-        $data = str_replace('DocumentData:','', $data);
-        $data = str_replace('DocumentData:','', $data);
-        $data = str_replace('PersonalData:','', $data);
-        $data = str_replace('[]', '', $data);
+    public function cardReaderDataToArray($data)
+    {
+        $data = str_replace(['{', '}', '/', 'VehicleData:', 'DocumentData:', 'PersonalData:', '[]'], '', $data);
+        $data = str_replace(',,,', ',', $data);
 
         $datas = explode(',', $data);
 
-        array_push($datas,$datas[32] = $datas[32].' '.$datas[33].' '.$datas[34].' '.$datas[35]);
+        array_push($datas, $datas[32] = $datas[32] . ' ' . $datas[33] . ' ' . $datas[34] . ' ' . $datas[35]);
 
         $newData = array();
-        foreach ($datas as $item){
+        foreach ($datas as $item) {
 
-            if ( preg_match('/([^-]+):([^-]+)/', $item)){
-                $string = explode(':',$item);
-            }else {
+            if (preg_match('/([^-]+):([^-]+)/', $item)) {
+                $string = explode(':', $item);
+            } else {
                 continue;
             }
 
-            if ($string[0] && $string[1] ) {
+            if ($string[0] && $string[1]) {
                 $newData[$string[0]] = $string[1];
-            }
-            else {
+            } else {
                 continue;
             }
         }
 
         return $newData;
-
     }
 
+
+    public function getCardRederData()
+    {
+        return $this->data;
+    }
+
+    public function saveCardReaderData()
+    {
+
+            $cardReader = new CardReader([
+                'car_id' => 0,
+                'card_data' => $this->rawCardData,
+
+            ]);
+            $cardReader->save();
+
+    }
 
 
 }

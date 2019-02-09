@@ -728,3 +728,24 @@ footer h3 {
 	background-color: #CCFFE5;
 
 }
+
+/* card reader */
+.borderBottom {
+	border-bottom: 2px solid limegreen;
+}
+
+.backColorMarginPading {
+	background-color: #f9f9f985;
+	padding: 10px 0px 25px 0px;
+
+}
+
+.blackText {
+	color: black;
+}
+
+
+.pdadingBottom{
+	padding-bottom: 15px;
+}
+/*end card reader */

@@ -1,23 +1,22 @@
 <?php
 
-namespace App;
+namespace App\Repository\Car;
 
-use Illuminate\Database\Eloquent\Model;
+use App\Car;
+use Illuminate\Support\Facades\DB;
 
-class Car extends Model
+
+class CarRepository
 {
-    protected $table = 'cars';
 
-    protected $fillable = [
-        'numberplate'
-    ];
+    public function checkPlateNumber($numberplate)
+    {
 
-
-    public function cars (){
-
-
-        return $this->hasMany('App\Car');
-
+        if (Car::where('numberplate', $numberplate)->first()) {
+            return 1;
+        } else {
+            return 0;
+        }
 
     }
 
@@ -42,5 +41,6 @@ class Car extends Model
         }
 
     }
+
 
 }

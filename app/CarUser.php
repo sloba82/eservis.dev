@@ -14,5 +14,4 @@ class CarUser extends Model
     ];
 
 
-
 }

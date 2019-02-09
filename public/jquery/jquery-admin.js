@@ -63,15 +63,17 @@ $(function () {
             type: 'POST',
             url: '/serviceautocomplate',
             dataType: 'json',
+            cache: false,
             data: {AppData: Param},
             success: function (data) {
 
             }
         });
 
-        $.ajax('/serviceautocomplate', {
+        $.ajax('/getServiceautocomplate', {
             dataType: 'json',
             type: 'get',
+            cache: false,
             success: function(response) {
 
                 $( "#numberplate" ).autocomplete({

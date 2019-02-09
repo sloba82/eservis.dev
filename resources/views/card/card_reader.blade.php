@@ -47,25 +47,91 @@
 <body>
 
 
-
 <div class="container">
-
-@foreach($newData as $key => $value )
-
-
     <div class="row">
-        <div class="col-md-4 text-center">
-            <label for="numberplate">{{ $key }}:</label>
-            <input name="{{ $key }}" type="text" class="form-control input-sm" id="{{ $key }}"
-                   value="{{ $value }}" >
+        <div class="col-md-1 text-left">
+            <img src="{{URL::asset('app/assets/img/mup.png')}}">
+        </div>
+        <div class="col-md-10 text-left">
+            <h2 class="blackText">Citac elektronske saobracajne dozvole</h2>
         </div>
     </div>
 
+    <div class="col-md-12 backColorMarginPading">
+        <div class="col-md-4 text-left">
+            <h4 class="borderBottom blackText">Podaci vozila:</h4>
+            <label for="first_registrstion">Datum prve registracije:</label>
+            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
+                   value="{{ $newData['VehicleIDNumber'] }}" disabled>
+            <label for="year">Godina proizvodnje:</label>
+            <input name="year" type="text" class="form-control input-sm blackText" id="year"
+                   value="{{ $newData['YearOfProduction'] }}" disabled>
+            <label for="make">Marka:</label>
+            <input name="make" type="text" class="form-control input-sm blackText" id="make"
+                   value="{{ $newData['VehicleMake'] }}" disabled>
 
-@endforeach
+            <label for="model">Model:</label>
+            <input name="model" type="text" class="form-control input-sm blackText" id="model"
+                   value="{{ $newData['CommercialDescription'] }}" disabled>
+
+            <label for="numberplate">Broj tablica:</label>
+            <input name="numberplate" type="text" class="form-control input-sm blackText" id="numberplate"
+                   value="{{ $newData['RegistrationNumberOfVehicle'] }}" disabled>
+
+            <label for="engine">Zapremina motora:</label>
+            <input name="engine" type="text" class="form-control input-sm blackText" id="engine"
+                   value="{{ $newData['EngineCapacity'] }}" disabled>
+
+            <label for="fuel">Gorivo:</label>
+            <input name="fuel" type="text" class="form-control input-sm blackText" id="fuel"
+                   value="{{ $newData['TypeOfFuel'] }}" disabled>
+
+            <div class="borderBottom pdadingBottom"></div>
+        </div>
+        <div class="col-md-4 text-left ">
+            <h4 class="borderBottom blackText">Podaci vlasnika:</h4>
+            <label for="first_registrstion">Datum prve registracije:</label>
+            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
+                   value="{{ $newData['DateOfFirstRegistration'] }}">
+            <label for="first_registrstion">Datum prve registracije:</label>
+            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
+                   value="{{ $newData['DateOfFirstRegistration'] }}">
+            <label for="first_registrstion">Datum prve registracije:</label>
+            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
+                   value="{{ $newData['DateOfFirstRegistration'] }}">
+
+            <div class="borderBottom pdadingBottom"></div>
+        </div>
+        <div class="col-md-1"></div>
+
+        <div class="col-md-3 text-left">
+            <h4 class="borderBottom blackText">Sledeci korak:</h4>
+            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
+            <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block">Block level button</button>
+
+            <div class="borderBottom pdadingBottom"></div>
+        </div>
+    </div>
 
 </div>
 
+{{--
+
+  @foreach($newData as $key => $value )
+        <div class="row">
+            <div class="col-md-4 text-left">
+                <label for="numberplate">{{ $key }}:</label>
+                <input name="{{ $key }}" type="text" class="form-control input-sm" id="{{ $key }}"
+                       value="{{ $value }}">
+            </div>
+        </div>
+    @endforeach
+
+--}}
+
+{{--
 <footer>
     <div class="container">
         <div class="row">
@@ -74,7 +140,7 @@
             </div>
         </div>
     </div>
-</footer>
+</footer>--}}
 
 
 <!-- Scripts -->
@@ -96,8 +162,6 @@
 <!--End Datatimepicker -->
 
 </body>
-
-
 
 
 </html>
