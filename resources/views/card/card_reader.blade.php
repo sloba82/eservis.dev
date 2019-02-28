@@ -46,7 +46,6 @@
 </head>
 <body>
 
-
 <div class="container">
     <div class="row">
         <div class="col-md-1 text-left">
@@ -56,11 +55,11 @@
             <h2 class="blackText">Citac elektronske saobracajne dozvole</h2>
         </div>
     </div>
-
     <div class="col-md-12 backColorMarginPading">
         <div class="col-md-4 text-left">
             <h4 class="borderBottom blackText">Podaci vozila:</h4>
-            <label for="first_registrstion">Datum prve registracije:</label>
+
+            <label for="first_registrstion">Broj sasije:</label>
             <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
                    value="{{ $newData['VehicleIDNumber'] }}" disabled>
             <label for="year">Godina proizvodnje:</label>
@@ -89,23 +88,28 @@
             <div class="borderBottom pdadingBottom"></div>
         </div>
         <div class="col-md-4 text-left ">
-            <h4 class="borderBottom blackText">Podaci vlasnika:</h4>
-            <label for="first_registrstion">Datum prve registracije:</label>
-            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
-                   value="{{ $newData['DateOfFirstRegistration'] }}">
-            <label for="first_registrstion">Datum prve registracije:</label>
-            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
-                   value="{{ $newData['DateOfFirstRegistration'] }}">
-            <label for="first_registrstion">Datum prve registracije:</label>
-            <input name="first_registrstion" type="text" class="form-control input-sm blackText" id="first_registrstion"
-                   value="{{ $newData['DateOfFirstRegistration'] }}">
+            <h4 class="borderBottom blackText">Podaci vlasnika / kontakt:</h4>
+
+            <label for="name">Ime:</label>
+            <input name="name" type="text" class="form-control input-sm blackText" id="name"
+                   value="{{ $newData['OwnerName'] }}" disabled>
+
+            <label for="last_name">Prezime / ili poslovno ime:</label>
+            <input name="last_name" type="text" class="form-control input-sm blackText" id="last_name"
+                   value="{{ $newData['OwnersSurnameOrBusinessName'] }}" disabled>
+
+            <label for="email">Email:</label>
+            <input name="email" type="text" class="form-control input-sm blackText" id="email" >
+
+            <label for="phone">Telefon:</label>
+            <input name="phone" type="text" class="form-control input-sm blackText" id="phone" >
 
             <div class="borderBottom pdadingBottom"></div>
         </div>
         <div class="col-md-1"></div>
-
         <div class="col-md-3 text-left">
             <h4 class="borderBottom blackText">Sledeci korak:</h4>
+            
             <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
             <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
             <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
@@ -114,11 +118,11 @@
             <div class="borderBottom pdadingBottom"></div>
         </div>
     </div>
-
 </div>
 
-{{--
 
+
+{{--
   @foreach($newData as $key => $value )
         <div class="row">
             <div class="col-md-4 text-left">
@@ -128,8 +132,9 @@
             </div>
         </div>
     @endforeach
-
 --}}
+
+
 
 {{--
 <footer>

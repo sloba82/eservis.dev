@@ -13,15 +13,13 @@ class CardReaderController extends Controller
     public function getCardReader($data)
     {
         $cardReader = new CardReaderRepository($data);
-        $newData = $cardReader->getCardRederData();
+        $newData = $cardReader->getData();
 
         $userRole = User::where('email', $newData['email'])->first();
 
         if ($userRole->role == 1 && $newData['key'] == 'test') {
             // should be set somewere elase
-            $cardReader->saveCardReaderData();
-
-
+            $cardReader->saveRawCardReaderData();
 
 
             return view('/card/card_reader', compact('newData'));
