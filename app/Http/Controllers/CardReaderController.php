@@ -18,7 +18,7 @@ class CardReaderController extends Controller
         $userRole = User::where('email', $newData['email'])->first();
 
         if ($userRole->role == 1 && $newData['key'] == 'test') {
-            // should be set somewere elase
+            // should be set somewere else
             $cardReader->saveRawCardReaderData();
 
 

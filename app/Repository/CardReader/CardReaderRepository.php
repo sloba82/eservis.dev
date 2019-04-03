@@ -20,6 +20,11 @@ class CardReaderRepository
 
     }
 
+    public function __get($field)
+    {
+        return  array_key_exists($field, $this->data ) ? $this->data[$field] : null ;
+    }
+
     public function getData()
     {
         return $this->data;
