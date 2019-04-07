@@ -13,12 +13,11 @@ class UsersSeeder extends Seeder
     public function run()
     {
 
-
         DB::table('users')->insert([
 
             'name' => 'admin',
             'email' => 'admin@admin.com',
-            'password' => md5('admin'),
+            'password' => bcrypt('admin'),
             'address' => 'Petra Petrovica 6',
             'city' => 'Novi Sad',
             'phone' => '0642465848',
@@ -31,7 +30,7 @@ class UsersSeeder extends Seeder
 
             'name' => 'test',
             'email' => 'test@gmail.com',
-            'password' => md5('test'),
+            'password' => bcrypt('test'),
             'address' => 'Petra Petrovica 6',
             'city' => 'Novi Sad',
             'phone' => '0642465848',

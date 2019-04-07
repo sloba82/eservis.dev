@@ -44,36 +44,22 @@ class AppoitmentController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request , AppointmentRepository $appointmentRepository )
     {
 
         $params = $request->all();
-
+        $params['user_id'] ='';
         if (Auth::user()) {
-            $user_id = Auth::user()->id;
+            $params['user_id'] = Auth::user()->id;
         } else {
-            $user_id = 0;
+            $params['user_id'] = 0;
         }
 
-        $dateAndTime = str_replace("/", "-", $params['appoitment']);
-        $dateAndTime .= ':00';
+        $params['dateAndTime'] = str_replace("/", "-", $params['appoitment']);
+        $params['dateAndTime'] .= ':00';
 
-        $Appopitment = new Appoitment([
-            'user_id' => $user_id,
-            'name' => $params['name'],
-            'last_name' => $params['last_name'],
-            'email' => $params['email'],
-            'phone' => $params['phone'],
-            'veh_make' => $params['veh_make'],
-            'appoitment' => $dateAndTime,
-            'description' => $params['description'],
-            'comment_admin' => 'Nema komentar',
-            'active' => 1,
-            'confirm' => 0
+        $appointmentRepository->saveAppointment($params);
 
-        ]);
-
-        $Appopitment->save();
         return redirect('/');
 
     }
