@@ -60,7 +60,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <li><a href={{ url('/appoitment/showAll') }}>Sva Zakazivanja</a></li>
+                <li><a href={{ route('appointment.index')}}>Sva Zakazivanja</a></li>
                 <li><a href={{ url('/service') }}>Servis</a></li>
                 <li><a href="#portfolio">Work</a></li>
                 <li><a href="#testimonials">Clients</a></li>

@@ -39,7 +39,7 @@
                     <div class="well-title">
                         <h2>Zakaži servis vozila</h2>
                     </div>
-                    <form  id="appoitmentForm" class="form"  method="post" action="/appoitment" > <!--stavi id="appoitment" u tok trenutku nestaje forma -->
+                    <form  id="appoitmentForm" class="form"  method="post" action="/appointmentsave" > <!--stavi id="appoitment" u tok trenutku nestaje forma -->
                         <!-- Form start -->
                      
 

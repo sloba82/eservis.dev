@@ -25,7 +25,7 @@ class ServiceController extends Controller
 
         $value = $request['AppData']['term'];
         $Cars = DB::table('cars')
-            ->where('numberplate', 'like', '%' . $value . '%')
+            ->where('numberplate', 'like', '%'.$value .'%')
             ->limit(10)
             ->get();
 
@@ -36,7 +36,6 @@ class ServiceController extends Controller
 
         return response()->json($numberPlate);
     }
-
 
     public function carInServiceOrCreateNewCar(Request $request)
     {

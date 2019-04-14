@@ -9,7 +9,12 @@ use App\Repository\CardReader\CardReaderRepository;
 
 class CardReaderController extends Controller
 {
-
+    /**
+     * Method for getting ...
+     *
+     * @param $data string
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
+     */
     public function getCardReader($data)
     {
         $cardReader = new CardReaderRepository($data);

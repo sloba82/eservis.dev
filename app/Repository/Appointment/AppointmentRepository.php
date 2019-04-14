@@ -10,13 +10,6 @@ use App\Appoitment;
 class AppointmentRepository
 {
 
-
-    public function showAppointment()
-    {
-        $allapointments = new Appoitment();
-        return view('/admin/admin_appointment_allresoult', compact('allapointments'));
-    }
-
     public function saveAppointment($params) {
 
         $Appopitment = new Appoitment([

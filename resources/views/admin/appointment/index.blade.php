@@ -36,7 +36,7 @@
                                 <td>{{ $allapointment->phone}} </td>
                                 <td>{{ $allapointment->veh_make}} </td>
                                 <td>{{ str_limit( $allapointment->comment_admin, $limit = 20, $end = '...') }}</td>
-                                <td><a href="{{ url('/appoitment/showSingle/'. $allapointment->id ) }}">
+                                <td><a href="{{ route('appointment.edit', $allapointment->id ) }}">
                                         <button type="button" class="btn btn-info btn-sm">Detalji / Izmene</button>
                                     </a></td>
                                 <td>

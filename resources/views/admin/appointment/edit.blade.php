@@ -9,10 +9,9 @@
     @endif
     <div class="container">
         <form class="form-horizontal appointmentEdit" role="form" method="post"
-              action="/appoitment/update/{{$Appopitment->id}}">
+            action="{{ route('appointment.update', $Appopitment->id ) }}">
             {{ csrf_field() }}
-            {{ method_field('POST') }}
-                    <!--start slider chackbox-->
+            {{ method_field('PUT') }}
 
             <div class="row">
 
@@ -80,7 +79,6 @@
                     </div>
                 </div>
 
-
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-12 "><h4 class="pull-left">Obavestenja prema klijentu
@@ -102,7 +100,7 @@
                                                value="1"
                                                @if ($Appopitment->confirm == 1)
                                                checked="checked"
-                                                @endif
+                                               @endif
                                                 />
                                         <label for="confirm" class="label-success"></label>
                                     </div>
@@ -172,10 +170,7 @@
                     </div>
                 </div>
             </div>
-            <!--end slider chackbox-->
-
             <div class="row">
-
                 <div class="col-md-4">
                     <input type="submit" class="btn btn-primary btn-lg btn-block" value="Sacuvaj promene">
                 </div>
@@ -183,14 +178,11 @@
                     <input type="reset" class="btn btn-secondary btn-lg btn-block" value="Ponisti / Resetuj">
                 </div>
                 <div class="col-md-4">
-                    <a href="{{ url('/appoitment/showAll') }}">
-                        <button id="{{$Appopitment->id}}" type="button" data-action="active"
-                                class="btn btn-danger btn-lg btn-block delete">Obrisi zakazivanje
-                        </button>
-                    </a>
+                    <button id="{{$Appopitment->id}}" type="button" data-action="active"
+                            class="btn btn-danger btn-lg btn-block delete">Obrisi zakazivanje
+                    </button>
                 </div>
             </div>
-
         </form>
     </div>
 @endsection

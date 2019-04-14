@@ -18,16 +18,25 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/appoitment', 'AppoitmentController@store');
+Route::post('/appointmentsave', 'AppoitmentController@store');
 
-Route::middleware(['auth', 'roles:admin'])->group(function () {
-    Route::get('/appoitment/showAll', 'AppoitmentController@showAll');
-    Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
+Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
+
+Route::resource('/appointment', 'AppoitmentController');
+
+/*Route::middleware(['auth', 'roles:admin'])->group(function () {*/
+   /* Route::get('/appoitment/showAll', 'AppoitmentController@showAll');*/
+ /*   Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
     Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
     Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
-    Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
+    Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');*/
 
-});
+
+  /*  Route::resource('/appoitment', 'AppoitmentController');*/
+
+
+
+/*});*/
 
 Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
     Route::get('/service', function () {

@@ -12,43 +12,36 @@ class AppoitmentController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
-
-
+        $allapointments = Appoitment::all();
+        return view('admin.appointment.index', compact('allapointments'));
     }
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return \Illuminate\Http\Response
      */
     public function create()
     {
-
+        //
     }
-
-    // Show all Apoitments
-    public function showAll()
-    {
-        $AppointmentRepository = new AppointmentRepository();
-        return $AppointmentRepository->showAppointment();
-
-    }
-
 
     /**
      * Store a newly created resource in storage.
+     *
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , AppointmentRepository $appointmentRepository )
+    public function store(Request $request, AppointmentRepository $appointmentRepository)
     {
 
         $params = $request->all();
-        $params['user_id'] ='';
+        $params['user_id'] = '';
         if (Auth::user()) {
             $params['user_id'] = Auth::user()->id;
         } else {
@@ -61,61 +54,62 @@ class AppoitmentController extends Controller
         $appointmentRepository->saveAppointment($params);
 
         return redirect('/');
-
     }
+
 
     /**
      * Display the specified resource.
+     *
      * @param  int $id
-     * @return Appoitment
+     * @return \Illuminate\Http\Response
      */
     public function show($id)
     {
-        //Show by id
-        $Appopitment = Appoitment::find($id);
-
-        if (!$Appopitment) {
-            $Appopitment = 'Nothing to show';
-        }
-
-        return view('/admin/admin_appointment_edit', compact('Appopitment'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
+     *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
+        $Appopitment = Appoitment::find($id);
+        if (!$Appopitment) {
+            $Appopitment = 'Nothing to show';
+        }
 
-
+        return view('admin.appointment.edit', compact('Appopitment'));
     }
 
     /**
      * Update the specified resource in storage.
+     *
      * @param  \Illuminate\Http\Request $request
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-
         if (strpos($request['appoitment'], '/')) {
             $dateAndTime = str_replace("/", "-", $request['appoitment']);
             $dateAndTime .= ':00';
             $request['appoitment'] = $dateAndTime;
         }
 
+        var_dump($request['confirm']);
         $request['confirm'] = intval($request['confirm']);
         $Appopitment = Appoitment::findOrFail($id);
         $Appopitment->update($request->all());
 
-        return redirect('/appoitment/showAll');
+        return $this->index();
     }
 
     /**
      * Remove the specified resource from storage.
+     *
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
@@ -126,14 +120,12 @@ class AppoitmentController extends Controller
         $Appopitment->delete();
 
         return redirect('admin/');
-
     }
 
     public function ajaxConfirm(Request $request)
     {
 
         $id = $request['AppData']['id'];
-
         if ($request['AppData']['field'] == 'active') {
             $value = 0;
         } else {
@@ -150,7 +142,9 @@ class AppoitmentController extends Controller
                 'data' => $data,
             ], 200);
         }
-
-
     }
+
 }
+
+
+
