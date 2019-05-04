@@ -6,6 +6,7 @@ use App\Appoitment;
 use App\Repository\Appointment\AppointmentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class AppoitmentController extends Controller
@@ -15,9 +16,19 @@ class AppoitmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    private $NumResultPerPage;
+
     public function index()
     {
-        $allapointments = Appoitment::all();
+        $paginate = 10;
+        if ($this->NumResultPerPage) {
+            $paginate = $this->NumResultPerPage;
+        }
+
+        $allapointments = DB::table('appoitments')
+            ->orderByRaw('id DESC')
+            ->simplePaginate($paginate);
         return view('admin.appointment.index', compact('allapointments'));
     }
 
@@ -142,6 +153,14 @@ class AppoitmentController extends Controller
                 'data' => $data,
             ], 200);
         }
+    }
+
+
+    public function resoultPerPage(Request $request) {
+
+        $this->NumResultPerPage = $request['AppData']['term'];
+        return $this->index();
+
     }
 
 }

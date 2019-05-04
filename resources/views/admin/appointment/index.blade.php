@@ -6,8 +6,6 @@
 
         <div class="row">
             <table id="allresoult" class="display cell-border compact strip">
-
-
                 <thead>
                 <tr>
                     <th>Id</th>
@@ -62,6 +60,11 @@
             </table>
         </div>
     </div>
+
+
+
+
+    {{ $allapointments->links() }}
 
 @endsection
 

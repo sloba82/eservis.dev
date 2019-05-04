@@ -24,13 +24,14 @@ Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
 Route::resource('/appointment', 'AppoitmentController');
 
+Route::post('/appointment-resoultPerPage', 'AppoitmentController@resoultPerPage');
+
 /*Route::middleware(['auth', 'roles:admin'])->group(function () {*/
    /* Route::get('/appoitment/showAll', 'AppoitmentController@showAll');*/
  /*   Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
     Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
     Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
     Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');*/
-
 
   /*  Route::resource('/appoitment', 'AppoitmentController');*/
 
