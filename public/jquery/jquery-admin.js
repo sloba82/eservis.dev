@@ -3,6 +3,9 @@ $(function () {
 
     $('#datetimepicker').datetimepicker({});
 
+
+
+
     $('#allresoult').DataTable({
         order: [[0, "desc"]],
         columnDefs: [
@@ -73,37 +76,14 @@ $(function () {
 
 
 
-    $('[name="allresoult_length"]').on('change', function(){
 
 
 
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            cache: false
-        });
-        var term =$('[name="allresoult_length"]').val();
-        $.ajax({
-            type: 'POST',
-            url: '/appointment-resoultPerPage',
-            dataType: 'json',
-            data: {
-                AppData: {
-                    term : term
-                }
-            },
-            success: function (response) {
-
-            }
-        });
-
-     /*   $('#example').dataTable( {
-            "pageLength": term
-        } );*/
 
 
-    });
+
+
+
 
 
 

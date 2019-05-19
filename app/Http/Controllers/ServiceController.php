@@ -10,6 +10,7 @@ use App\CarUser;
 use App\Repository\Services;
 use App\UserRole;
 use App\Repository\Car\CarRepository;
+use App\Repository\CarUser\CarUserRepository;
 
 class ServiceController extends Controller
 {
@@ -33,7 +34,6 @@ class ServiceController extends Controller
         foreach ($Cars as $Car) {
             array_push($numberPlate, $Car->numberplate);
         }
-
         return response()->json($numberPlate);
     }
 
@@ -54,9 +54,7 @@ class ServiceController extends Controller
                 'mileage' => $car->mileage,
 
             );
-
             return view('/admin/admin_service-add', compact('addCar'));
-
 
         } else {
             // ovde ce morati da se kreira novi user ako ne postiji
@@ -66,39 +64,32 @@ class ServiceController extends Controller
             $newCar = array(
                 'numberplate' => strtoupper($numberplate)
             );
-
             return view('/admin/admin_service-createCar', compact('newCar'));
         }
     }
-
-
 
     public function carByID($id)
     {
         $car = DB::table('cars')
             ->where('id', $id)
             ->first();
-
         return $car;
     }
 
     public function serviceCarAdd(Request $request)
     {
-        $services = new Services\ServicesRepository();
-
         $user = $request->user();
         $request = $request->all();
         $request['service_man'] = $user->name;
+        $carID = $request['carID'];
 
-        $serviceID = $services->serviceAdd($request);
-        if ($serviceID) {
-
+        if ($carID) {
             $role = UserRole::find($user->role);
 
             if ($role->name == 'serviceman') {
                 return redirect('/service');
             } elseif ($role->name == 'admin') {
-                return redirect('/service-editcar/' . $serviceID);
+                return redirect('/service-editcar/' . $carID);
             } else {
                 return redirect('home');
             }
@@ -107,8 +98,10 @@ class ServiceController extends Controller
 
     public function serviceCarEdit($id)
     {
+        $carUser = new CarUserRepository('car', $id);
+        dd($carUser);
         $services = new Services\ServicesRepository();
-        $id = $services->serviceEdit($id);
+        $id = $services->serviceGetUserCar($id);
 
         return view('/admin/admin_service-edit', compact('id'));
     }

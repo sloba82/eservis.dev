@@ -32,12 +32,13 @@ class ServicesRepository
     }
 
 
-    public function serviceEdit ($id) {
+    public function serviceGetUserCar ($id) {
 
         $service = Service::find($id);  // vraca servis pod id
-        $service->serviceCar; // vraca podatke iz car tabele prema id
 
-        
+        dd($service);
+
+        // vraca podatke iz car tabele prema id
 
         return $id;
 

@@ -24,6 +24,9 @@ Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
 
 Route::resource('/appointment', 'AppoitmentController');
 
+Route::get('/appointment-table/{rezNum}', 'AppoitmentController@resoultPerPage');
+
+
 Route::post('/appointment-resoultPerPage', 'AppoitmentController@resoultPerPage');
 
 /*Route::middleware(['auth', 'roles:admin'])->group(function () {*/

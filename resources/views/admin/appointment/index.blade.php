@@ -2,6 +2,10 @@
 
 
 @section('content')
+
+
+    {{json_decode($allapointments)}}
+
     <div class="container">
 
         <div class="row">
@@ -21,9 +25,11 @@
                 </thead>
                 <tbody>
 
-                @if (count($allapointments->all()))
 
-                    @foreach($allapointments->all() as $allapointment )
+
+                @if (count($allapointments))
+
+                    @foreach($allapointments as $allapointment )
 
                         @if ($allapointment->active == 1)
                             <tr class="hover @if($allapointment->confirm) confirm @endif ">
@@ -60,9 +66,6 @@
             </table>
         </div>
     </div>
-
-
-
 
     {{ $allapointments->links() }}
 
