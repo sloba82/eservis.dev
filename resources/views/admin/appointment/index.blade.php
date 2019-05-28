@@ -3,9 +3,6 @@
 
 @section('content')
 
-
-    {{json_decode($allapointments)}}
-
     <div class="container">
 
         <div class="row">

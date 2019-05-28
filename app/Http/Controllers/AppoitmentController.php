@@ -21,18 +21,12 @@ class AppoitmentController extends Controller
 
     public function index()
     {
-        $paginate = 20;
-        if ($this->NumResultPerPage) {
-            $paginate = $this->NumResultPerPage;
-        }
+
+        $paginate = 10;
 
         $allapointments = DB::table('appoitments')
             ->orderByRaw('id DESC')
-            ->simplePaginate($paginate);
-
-
-        $allapointments = json_encode($allapointments->all());
-
+            ->paginate($paginate);
 
 
         return view('admin.appointment.index', compact('allapointments'));
@@ -165,8 +159,15 @@ class AppoitmentController extends Controller
 
 
     public function resoultPerPage($rezNum) {
-        $this->NumResultPerPage = $rezNum;
-        return $this->index();
+
+
+
+        $allapointments = DB::table('appoitments')
+            ->orderByRaw('id DESC')
+            ->paginate($rezNum);
+
+
+        return view('admin.appointment.index', compact('allapointments'));
 
     }
 
