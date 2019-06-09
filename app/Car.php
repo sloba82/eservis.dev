@@ -7,23 +7,25 @@ use Illuminate\Database\Eloquent\Model;
 class Car extends Model
 {
     protected $table = 'cars';
-
     protected $fillable = [
-        'numberplate'
+        'numberplate',
+        'id',
+        'numberplate',
+        'make',
+        'model',
+        'engine',
+        'year',
+        'created_at',
+        'updated_at',
     ];
 
-
-    public function cars (){
-
-
+    public function cars()
+    {
         return $this->hasMany('App\Car');
-
-
     }
 
     public function plateHasUser($param)
     {
-
         $numberplate = $param;
         $plates = DB::table('cars')
             ->select('id')
@@ -40,7 +42,6 @@ class Car extends Model
         } else {
             return 0;
         }
-
     }
 
 }

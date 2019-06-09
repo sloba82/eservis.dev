@@ -2,13 +2,15 @@
 
 namespace App\Repository\Helper;
 
-class HelperRepository {
+class HelperRepository
+{
 
     /*
      *  convert string to array (string sent from card reader) Ex. :
      * "{VehicleData:{DateOfFirstRegistration:29.01.2004,YearOfProduction:2004..."
      */
-    public function stringToArray ($data){
+    public function stringToArray($data)
+    {
         $data = str_replace(['{', '}', '/', 'VehicleData:', 'DocumentData:', 'PersonalData:', '[]'], '', $data);
         $data = str_replace(',,,', ',', $data);
         $datas = explode(',', $data);

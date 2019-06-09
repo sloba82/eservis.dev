@@ -20,5 +20,19 @@ class CarUserSeeder extends Seeder
             'updated_at' => '2018-02-18 01:20:44',
         ]);
 
+        DB::table('car_users')->insert([
+            'car_id' => 2,
+            'user_id' => 1,
+            'created_at' => '2018-02-18 01:20:44',
+            'updated_at' => '2018-02-18 01:20:44',
+        ]);
+
+        DB::table('car_users')->insert([
+            'car_id' => 2,
+            'user_id' => 2,
+            'created_at' => '2018-02-18 01:20:44',
+            'updated_at' => '2018-02-18 01:20:44',
+        ]);
+
     }
 }

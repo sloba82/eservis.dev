@@ -4,7 +4,6 @@
 @section('content')
 
     <div class="container">
-
         <div class="row">
             <table id="allresoult" class="display cell-border compact strip">
                 <thead>
@@ -21,13 +20,8 @@
                 </tr>
                 </thead>
                 <tbody>
-
-
-
                 @if (count($allapointments))
-
                     @foreach($allapointments as $allapointment )
-
                         @if ($allapointment->active == 1)
                             <tr class="hover @if($allapointment->confirm) confirm @endif ">
                                 <td> {{$allapointment->id}}</td>
@@ -54,17 +48,13 @@
                                 </td>
                             </tr>
                         @endif
-
                     @endforeach
-
                 @endif
-
                 </tbody>
             </table>
         </div>
+        {{ $allapointments->links() }}
     </div>
-
-    {{ $allapointments->links() }}
 
 @endsection
 

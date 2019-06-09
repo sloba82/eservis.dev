@@ -159,13 +159,9 @@ class AppoitmentController extends Controller
 
 
     public function resoultPerPage($rezNum) {
-
-
-
         $allapointments = DB::table('appoitments')
             ->orderByRaw('id DESC')
             ->paginate($rezNum);
-
 
         return view('admin.appointment.index', compact('allapointments'));
 

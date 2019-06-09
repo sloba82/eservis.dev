@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Repository\CardReader\CardUsersRepository;
 use App\User;
 use App\CardReader;
 use Illuminate\Http\Request;
 use App\Repository\CardReader\CardReaderRepository;
+use  App\Repository\Services\ServicesRepository;
+use App\Repository\Car\CarRepository;
 
 class CardReaderController extends Controller
 {
@@ -15,6 +18,7 @@ class CardReaderController extends Controller
      * @param $data string
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View|string
      */
+
     public function getCardReader($data)
     {
         $cardReader = new CardReaderRepository($data);
@@ -33,6 +37,36 @@ class CardReaderController extends Controller
         }
 
     }
+
+    public function sendCarToService(Request $request) {
+        $request = $request->all();
+
+        $car = new CarRepository();
+
+        if (!$car->checkPlateNumber($request['numberplate'])) {
+            $request['mileage'] ='';
+             $car->saveCar($request);
+
+            dd($car->id);
+        }
+
+
+
+
+
+
+
+
+ /*    $data['name'] => $data['name'];
+     $data['email']  => $data['email'];
+     $data['role']   => 2;
+     $data['password']  => bcrypt($data['password']);
+        $cardUser = new CardUsersRepository();
+        $cardUser->createCardUser($data);*/
+
+
+    }
+
 
 
 }

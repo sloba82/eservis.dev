@@ -11,6 +11,7 @@ use App\Repository\Services;
 use App\UserRole;
 use App\Repository\Car\CarRepository;
 use App\Repository\CarUser\CarUserRepository;
+use App\Repository\Services\ServicesRepository;
 
 class ServiceController extends Controller
 {
@@ -39,41 +40,8 @@ class ServiceController extends Controller
 
     public function carInServiceOrCreateNewCar(Request $request)
     {
-        $carPlate = new CarRepository();
-
-        $carID = $carPlate->plateHasUser($request['numberplate']);
-        if ($carID) {
-            $car = $this->carByID($carID);
-            $addCar = array(
-                'carID' => $carID,
-                'numberplate' => strtoupper($request['numberplate']),
-                'make' => $car->make,
-                'model' => $car->model,
-                'engine' => $car->engine,
-                'year' => $car->year,
-                'mileage' => $car->mileage,
-
-            );
-            return view('/admin/admin_service-add', compact('addCar'));
-
-        } else {
-            // ovde ce morati da se kreira novi user ako ne postiji
-            // sto znaci previ se novi auto complete za listanje usera
-
-            $numberplate = str_replace(' ', '', $request['numberplate']);
-            $newCar = array(
-                'numberplate' => strtoupper($numberplate)
-            );
-            return view('/admin/admin_service-createCar', compact('newCar'));
-        }
-    }
-
-    public function carByID($id)
-    {
-        $car = DB::table('cars')
-            ->where('id', $id)
-            ->first();
-        return $car;
+        $servicesRepository = new ServicesRepository();
+        return $servicesRepository->carInServiceOrCreateNewCar($request);
     }
 
     public function serviceCarAdd(Request $request)
@@ -98,12 +66,12 @@ class ServiceController extends Controller
 
     public function serviceCarEdit($id)
     {
-        $carUser = new CarUserRepository('car', $id);
-        dd($carUser);
-        $services = new Services\ServicesRepository();
-        $id = $services->serviceGetUserCar($id);
+        $carUser = new CarUserRepository();
+        $carData =  $carUser->userCarData('car', $id);
 
-        return view('/admin/admin_service-edit', compact('id'));
+        var_dump($carData);
+
+        return view('/admin/admin_service-edit', compact('carData'));
     }
 
 

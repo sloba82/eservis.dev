@@ -56,6 +56,15 @@
         </div>
     </div>
     <div class="col-md-12 backColorMarginPading">
+
+
+        <form id="cardReader"
+              role="form"
+              method="post"
+              action="">
+            {{ csrf_field() }}
+
+
         <div class="col-md-4 text-left">
             <h4 class="borderBottom blackText">Podaci vozila:</h4>
 
@@ -106,46 +115,27 @@
 
             <div class="borderBottom pdadingBottom"></div>
         </div>
+
         <div class="col-md-1"></div>
         <div class="col-md-3 text-left">
             <h4 class="borderBottom blackText">Sledeci korak:</h4>
 
-            <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
+            <button type="submit" class="toService btn btn-primary btn-lg btn-block" >Posalji u servis</button>
             <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
             <button type="button" class="btn btn-success btn-lg btn-block">Block level button</button>
             <button type="button" class="btn btn-warning btn-lg btn-block">Block level button</button>
 
             <div class="borderBottom pdadingBottom"></div>
         </div>
+
+        </form>
     </div>
+
 </div>
 
 
 
-{{--
-  @foreach($newData as $key => $value )
-        <div class="row">
-            <div class="col-md-4 text-left">
-                <label for="numberplate">{{ $key }}:</label>
-                <input name="{{ $key }}" type="text" class="form-control input-sm" id="{{ $key }}"
-                       value="{{ $value }}">
-            </div>
-        </div>
-    @endforeach
---}}
 
-
-
-{{--
-<footer>
-    <div class="container">
-        <div class="row">
-            <div id="logoImages">
-
-            </div>
-        </div>
-    </div>
-</footer>--}}
 
 
 <!-- Scripts -->
@@ -157,7 +147,7 @@
 <script src="{{ URL::asset('app/assets/js/wow.min.js')}}"></script>
 <script src="{{ URL::asset('app/assets/js/waypoints.min.js')}}"></script>
 <script src="{{ URL::asset('app/assets/js/scripts.js')}}"></script>
-<script src="{{URL::asset('jquery/jquery-custom.js')}}"></script>
+<script src="{{URL::asset('jquery/jquery-cardReader.js')}}"></script>
 <!--[if lt IE 10]>
 <script src="{{ URL::asset('app/assets/js/placeholder.js')}}"></script>
 <![endif]-->
