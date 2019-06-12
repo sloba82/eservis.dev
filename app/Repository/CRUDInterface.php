@@ -4,14 +4,14 @@ namespace App\Repository;
 
 interface CRUDInterface {
 
-    public function save();
+    public function save($params);
 
     public function getAll();
 
-    public function getById();
+    public function getById($id);
 
-    public function update();
+    public function update($params, $id);
 
-    public function delete();
+    public function delete($id);
 }
 

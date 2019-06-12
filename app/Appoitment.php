@@ -10,7 +10,6 @@ class Appoitment extends Model
     protected $table = "appoitments";
 
     protected $fillable = [
-
         'user_id',
         'name',
         'last_name',
@@ -28,8 +27,6 @@ class Appoitment extends Model
         'name' => 'required|max:256',
         'last_name' => 'required|max:256',
         'phone' => 'required|integer',
-
-
     ];
 
 

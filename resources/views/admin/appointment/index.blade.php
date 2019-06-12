@@ -4,6 +4,7 @@
 @section('content')
 
     <div class="container">
+        {{ csrf_field() }}
         <div class="row">
             <table id="allresoult" class="display cell-border compact strip">
                 <thead>

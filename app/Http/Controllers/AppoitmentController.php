@@ -17,21 +17,16 @@ class AppoitmentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    private $NumResultPerPage;
 
     public function index()
     {
-
         $paginate = 10;
-
         $allapointments = DB::table('appoitments')
             ->orderByRaw('id DESC')
+            ->where('active', 1)
             ->paginate($paginate);
 
-
         return view('admin.appointment.index', compact('allapointments'));
-
-
     }
 
     /**
@@ -52,7 +47,6 @@ class AppoitmentController extends Controller
      */
     public function store(Request $request, AppointmentRepository $appointmentRepository)
     {
-
         $params = $request->all();
         $params['user_id'] = '';
         if (Auth::user()) {
@@ -61,10 +55,10 @@ class AppoitmentController extends Controller
             $params['user_id'] = 0;
         }
 
-        $params['dateAndTime'] = str_replace("/", "-", $params['appoitment']);
-        $params['dateAndTime'] .= ':00';
+        $params['appoitment'] = str_replace("/", "-", $params['appoitment']);
+        $params['appoitment'] .= ':00';
 
-        $appointmentRepository->saveAppointment($params);
+        $appointmentRepository->save($params);
 
         return redirect('/');
     }
@@ -87,9 +81,9 @@ class AppoitmentController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, AppointmentRepository $appointmentRepository)
     {
-        $Appopitment = Appoitment::find($id);
+        $Appopitment = $appointmentRepository->getById($id);
         if (!$Appopitment) {
             $Appopitment = 'Nothing to show';
         }
@@ -104,7 +98,7 @@ class AppoitmentController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, AppointmentRepository $appointmentRepository, $id)
     {
         if (strpos($request['appoitment'], '/')) {
             $dateAndTime = str_replace("/", "-", $request['appoitment']);
@@ -112,12 +106,12 @@ class AppoitmentController extends Controller
             $request['appoitment'] = $dateAndTime;
         }
 
-        var_dump($request['confirm']);
         $request['confirm'] = intval($request['confirm']);
-        $Appopitment = Appoitment::findOrFail($id);
-        $Appopitment->update($request->all());
+        $appointmentRepository->update($request->all(), $id);
 
-        return $this->index();
+        return redirect('/appointment');
+
+        /* return $this->index();*/
     }
 
     /**
@@ -126,18 +120,14 @@ class AppoitmentController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(AppointmentRepository $appointmentRepository, $id)
     {
-        //
-        $Appopitment = Appoitment::find($id);
-        $Appopitment->delete();
-
-        return redirect('admin/');
+        $appointmentRepository->delete($id);
+        return $this->index();
     }
 
-    public function ajaxConfirm(Request $request)
+    public function ajaxConfirm(Request $request, AppointmentRepository $appointmentRepository)
     {
-
         $id = $request['AppData']['id'];
         if ($request['AppData']['field'] == 'active') {
             $value = 0;
@@ -146,9 +136,8 @@ class AppoitmentController extends Controller
         }
 
         if ($request['AppData']['field']) {
-            $Appopitment = Appoitment::findOrFail($id);
-            $Appopitment->update([$request['AppData']['field'] => $value]);
 
+            $appointmentRepository->update([$request['AppData']['field'] => $value], $id);
             $data = 'test';
             return response()->json([
                 'success' => true,
@@ -157,14 +146,18 @@ class AppoitmentController extends Controller
         }
     }
 
+    public function ajaxResoultPerPage($num)
+    {
 
-    public function resoultPerPage($rezNum) {
+        dd($num);
+      /*
+        $paginate = $rezNum;
         $allapointments = DB::table('appoitments')
             ->orderByRaw('id DESC')
-            ->paginate($rezNum);
+            ->where('active', 1)
+            ->paginate($paginate);
 
-        return view('admin.appointment.index', compact('allapointments'));
-
+        return view('admin.appointment.index', compact('allapointments'));*/
     }
 
 }

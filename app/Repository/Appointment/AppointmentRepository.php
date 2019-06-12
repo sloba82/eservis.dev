@@ -19,7 +19,7 @@ class AppointmentRepository implements CRUDInterface
             'email' => $params['email'],
             'phone' => $params['phone'],
             'veh_make' => $params['veh_make'],
-            'appointment' => $params['dateAndTime'],
+            'appoitment' => $params['appoitment'],
             'description' => $params['description'],
             'comment_admin' => 'Nema komentar',
             'active' => 1,
@@ -30,19 +30,22 @@ class AppointmentRepository implements CRUDInterface
 
 
     public function getAll(){
-        return 1;
+        return Appoitment::all();
     }
 
-    public function getById(){
-        return 1;
+    public function getById($id){
+        return Appoitment::find($id);
     }
 
-    public function update(){
-        return 1;
+    public function update($params, $id){
+        $Appopitment = Appoitment::findOrFail($id);
+        $Appopitment->update($params);
     }
 
-    public function delete(){
-        return 1;
+    public function delete($id){
+        $Appopitment = Appoitment::find($id);
+        $Appopitment->delete();
+
     }
 
 

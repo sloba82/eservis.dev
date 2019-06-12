@@ -64,13 +64,17 @@ class ServiceController extends Controller
         }
     }
 
-    public function serviceCarEdit($id)
+    public function serviceCarEdit($id, CarUserRepository $carUserRepository)
     {
-        $carUser = new CarUserRepository();
-        $carData =  $carUser->userCarData('car', $id);
 
-        var_dump($carData);
+        $carUserRepository->save(['car_id' =>'45', 'user_id'=>'34']);
 
+        $carUserRepository->getById(4);
+        dd( );
+
+
+
+        $carData =  $carUserRepository->userCarData('car', $id);
         return view('/admin/admin_service-edit', compact('carData'));
     }
 
