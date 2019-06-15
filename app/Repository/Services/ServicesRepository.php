@@ -16,7 +16,6 @@ class ServicesRepository implements CRUDInterface
 
     public function save($request)
     {
-
         $id = DB::table('services')->insertGetId(
             [
                 'car_id' => $request['carID'],
@@ -25,8 +24,8 @@ class ServicesRepository implements CRUDInterface
                 'kilometer' => $request['kilometer'],
                 'service_date' => $request['service_date'],
                 'description' => $request['description'],
-                "created_at" => Carbon::now(),
-                "updated_at" => Carbon::now(),
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
             ]
         );
         return $this->id = $id;
@@ -70,7 +69,6 @@ class ServicesRepository implements CRUDInterface
             );
             return view('/admin/admin_service-createCar', compact('newCar'));
         }
-
     }
 
 
@@ -86,14 +84,14 @@ class ServicesRepository implements CRUDInterface
 
     public function update($params, $id)
     {
-        $Appopitment = Service::findOrFail($id);
-        $Appopitment->update($params);
+        $Service = Service::findOrFail($id);
+        $Service->update($params);
     }
 
     public function delete($id)
     {
-        $Appopitment = Service::find($id);
-        $Appopitment->delete();
+        $Service = Service::find($id);
+        $Service->delete($id);
     }
 
 }

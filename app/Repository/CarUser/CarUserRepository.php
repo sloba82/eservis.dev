@@ -69,14 +69,14 @@ class CarUserRepository implements CRUDInterface
 
     public function update($params, $id)
     {
-        $Appopitment = CarUser::findOrFail($id);
-        $Appopitment->update($params);
+        $CarUser = CarUser::findOrFail($id);
+        $CarUser->update($params);
     }
 
     public function delete($id)
     {
-        $Appopitment = CarUser::find($id);
-        $Appopitment->delete();
+        $CarUser = CarUser::find($id);
+        $CarUser->delete();
     }
 
 
