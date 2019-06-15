@@ -150,14 +150,14 @@ class AppoitmentController extends Controller
     {
 
         dd($num);
-      /*
-        $paginate = $rezNum;
-        $allapointments = DB::table('appoitments')
-            ->orderByRaw('id DESC')
-            ->where('active', 1)
-            ->paginate($paginate);
+        /*
+          $paginate = $rezNum;
+          $allapointments = DB::table('appoitments')
+              ->orderByRaw('id DESC')
+              ->where('active', 1)
+              ->paginate($paginate);
 
-        return view('admin.appointment.index', compact('allapointments'));*/
+          return view('admin.appointment.index', compact('allapointments'));*/
     }
 
 }

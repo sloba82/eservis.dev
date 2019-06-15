@@ -6,14 +6,15 @@ use App\Service;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use App\Repository\Car\CarRepository;
+use App\Repository\CRUDInterface;
 
 
-class ServicesRepository
+class ServicesRepository implements CRUDInterface
 {
 
     private $id;
 
-    public function serviceAdd($request)
+    public function save($request)
     {
 
         $id = DB::table('services')->insertGetId(
@@ -28,8 +29,7 @@ class ServicesRepository
                 "updated_at" => Carbon::now(),
             ]
         );
-        $this->id = $id;
-        return $id;
+        return $this->id = $id;
     }
 
     public function carByID($id)
@@ -40,18 +40,6 @@ class ServicesRepository
         return $car;
     }
 
-    public function serviceGetUserCar($id)
-    {
-
-        $service = Service::find($id);  // vraca servis pod id
-
-        dd($service);
-
-        // vraca podatke iz car tabele prema id
-
-        return $id;
-
-    }
 
     public function carInServiceOrCreateNewCar($request)
     {
@@ -83,6 +71,29 @@ class ServicesRepository
             return view('/admin/admin_service-createCar', compact('newCar'));
         }
 
+    }
+
+
+    public function getAll()
+    {
+        return Service::all();
+    }
+
+    public function getById($id)
+    {
+        return Service::find($id);
+    }
+
+    public function update($params, $id)
+    {
+        $Appopitment = Service::findOrFail($id);
+        $Appopitment->update($params);
+    }
+
+    public function delete($id)
+    {
+        $Appopitment = Service::find($id);
+        $Appopitment->delete();
     }
 
 }

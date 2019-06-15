@@ -68,12 +68,7 @@ class ServiceController extends Controller
     {
 
         $carUserRepository->save(['car_id' =>'45', 'user_id'=>'34']);
-
-        $carUserRepository->getById(4);
-        dd( );
-
-
-
+        $carUserRepository->getById($id);
         $carData =  $carUserRepository->userCarData('car', $id);
         return view('/admin/admin_service-edit', compact('carData'));
     }

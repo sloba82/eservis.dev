@@ -47,29 +47,34 @@ class CarUserRepository implements CRUDInterface
         return $this->data = $userCarData;
     }
 
-    public function save($params) {
+    public function save($params)
+    {
 
         $Appopitment = new CarUser([
             'car_id' => $params['car_id'],
-            'user_id'  => $params['user_id']
+            'user_id' => $params['user_id']
         ]);
         $Appopitment->save();
     }
 
-    public function getAll(){
+    public function getAll()
+    {
         return CarUser::all();
     }
 
-    public function getById($id){
+    public function getById($id)
+    {
         return CarUser::find($id);
     }
 
-    public function update($params, $id){
+    public function update($params, $id)
+    {
         $Appopitment = CarUser::findOrFail($id);
         $Appopitment->update($params);
     }
 
-    public function delete($id){
+    public function delete($id)
+    {
         $Appopitment = CarUser::find($id);
         $Appopitment->delete();
     }

@@ -2,7 +2,8 @@
 
 namespace App\Repository;
 
-interface CRUDInterface {
+interface CRUDInterface
+{
 
     public function save($params);
 

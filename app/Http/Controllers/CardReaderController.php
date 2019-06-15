@@ -38,35 +38,29 @@ class CardReaderController extends Controller
 
     }
 
-    public function sendCarToService(Request $request) {
+    public function sendCarToService(Request $request)
+    {
         $request = $request->all();
 
         $car = new CarRepository();
 
         if (!$car->checkPlateNumber($request['numberplate'])) {
-            $request['mileage'] ='';
-             $car->saveCar($request);
+            $request['mileage'] = '';
+            $car->save($request);
 
             dd($car->id);
         }
 
 
-
-
-
-
-
-
- /*    $data['name'] => $data['name'];
-     $data['email']  => $data['email'];
-     $data['role']   => 2;
-     $data['password']  => bcrypt($data['password']);
-        $cardUser = new CardUsersRepository();
-        $cardUser->createCardUser($data);*/
+        /*    $data['name'] => $data['name'];
+            $data['email']  => $data['email'];
+            $data['role']   => 2;
+            $data['password']  => bcrypt($data['password']);
+               $cardUser = new CardUsersRepository();
+               $cardUser->createCardUser($data);*/
 
 
     }
-
 
 
 }

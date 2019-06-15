@@ -5,9 +5,9 @@ namespace App\Repository\Car;
 use App\Car;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use App\Repository\CRUDInterface;
 
-
-class CarRepository
+class CarRepository implements CRUDInterface
 {
 
 
@@ -15,10 +15,10 @@ class CarRepository
 
     public function __get($field)
     {
-        return  array_key_exists($field, $this->data ) ? $this->data[$field] : null ;
+        return array_key_exists($field, $this->data) ? $this->data[$field] : null;
     }
 
-    public function saveCar($params)
+    public function save($params)
     {
 
         $params['numberplate'] = str_replace(['-', ' ', '*', '  '], '', $params['numberplate']);
@@ -65,6 +65,28 @@ class CarRepository
         } else {
             return 0;
         }
+    }
+
+    public function getAll()
+    {
+        return Car::all();
+    }
+
+    public function getById($id)
+    {
+        return Car::find($id);
+    }
+
+    public function update($params, $id)
+    {
+        $Appopitment = Car::findOrFail($id);
+        $Appopitment->update($params);
+    }
+
+    public function delete($id)
+    {
+        $Appopitment = Car::find($id);
+        $Appopitment->delete();
     }
 
 
