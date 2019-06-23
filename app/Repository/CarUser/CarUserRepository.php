@@ -49,7 +49,6 @@ class CarUserRepository implements CRUDInterface
 
     public function save($params)
     {
-
         $Appopitment = new CarUser([
             'car_id' => $params['car_id'],
             'user_id' => $params['user_id']

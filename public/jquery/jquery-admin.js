@@ -37,7 +37,7 @@ $(function () {
 
     $( "#numberplate" ).autocomplete({
         autoFocus: true,
-        delay: 300,
+        delay: 3,
         position: { my : "right top", at: "right bottom" }
     });
 

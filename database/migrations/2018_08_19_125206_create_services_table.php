@@ -19,7 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('service_man');
             $table->string('service_status');
             $table->string('kilometer');
-            $table->string('service_date');
+            $table->dateTime('service_date');
             $table->string('description');
             $table->timestamps();
         });

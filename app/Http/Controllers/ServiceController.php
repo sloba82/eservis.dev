@@ -12,6 +12,7 @@ use App\UserRole;
 use App\Repository\Car\CarRepository;
 use App\Repository\CarUser\CarUserRepository;
 use App\Repository\Services\ServicesRepository;
+use App\Repository\Helper\HelperRepository;
 
 class ServiceController extends Controller
 {
@@ -44,12 +45,15 @@ class ServiceController extends Controller
         return $servicesRepository->carInServiceOrCreateNewCar($request);
     }
 
-    public function serviceCarAdd(Request $request)
+    public function serviceCarAdd(Request $request, ServicesRepository $servicesRepository, HelperRepository $helperRepository )
     {
         $user = $request->user();
         $request = $request->all();
         $request['service_man'] = $user->name;
         $carID = $request['carID'];
+
+        $request['service_date'] = $helperRepository->timeFormat($request['service_date']);
+        $serviceID = $servicesRepository->save($request);
 
         if ($carID) {
             $role = UserRole::find($user->role);
@@ -57,19 +61,21 @@ class ServiceController extends Controller
             if ($role->name == 'serviceman') {
                 return redirect('/service');
             } elseif ($role->name == 'admin') {
-                return redirect('/service-editcar/' . $carID);
+
+                return redirect()->route('/service-editcar/', ['carID' => $carID, 'serviceID'=>$serviceID]);
             } else {
                 return redirect('home');
             }
         }
     }
 
-    public function serviceCarEdit($id, CarUserRepository $carUserRepository)
+    public function serviceEditCar($carID, $serviceID , CarUserRepository $carUserRepository, ServicesRepository $servicesRepository, Request $request)
     {
 
-        $carUserRepository->save(['car_id' =>'45', 'user_id'=>'34']);
-        $carUserRepository->getById($id);
-        $carData =  $carUserRepository->userCarData('car', $id);
+        $carUserRepository->getById($carID);
+        $carData =  $carUserRepository->userCarData('car', $carID);
+        $carData['serviceData'] = $servicesRepository->getById($serviceID);
+
         return view('/admin/admin_service-edit', compact('carData'));
     }
 

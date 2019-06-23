@@ -28,7 +28,6 @@ class AppointmentRepository implements CRUDInterface
         $Appopitment->save();
     }
 
-
     public function getAll(){
         return Appoitment::all();
     }

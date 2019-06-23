@@ -14,6 +14,15 @@ class ServicesRepository implements CRUDInterface
 
     private $id;
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param
+     * @return id of services save
+     *
+     *
+     */
+
     public function save($request)
     {
         $id = DB::table('services')->insertGetId(
@@ -91,7 +100,7 @@ class ServicesRepository implements CRUDInterface
     public function delete($id)
     {
         $Service = Service::find($id);
-        $Service->delete($id);
+        $Service->delete();
     }
 
 }

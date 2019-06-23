@@ -35,4 +35,14 @@ class HelperRepository
 
         return $newData;
     }
+
+    /**
+     * @param $param 15/6/2019 20:37
+     * @return string DB time data format
+     */
+    public function timeFormat ($param) {
+        return str_replace("/", "-", $param) .':00';
+
+    }
+
 }
