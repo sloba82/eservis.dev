@@ -41,8 +41,7 @@ class HelperRepository
      * @return string DB time data format
      */
     public function timeFormat ($param) {
-        return str_replace("/", "-", $param) .':00';
-
+        return date("Y-m-d H:i:s", strtotime(str_replace("/", "-", $param)));
     }
 
 }

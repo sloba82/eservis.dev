@@ -61,7 +61,6 @@ class ServiceController extends Controller
             if ($role->name == 'serviceman') {
                 return redirect('/service');
             } elseif ($role->name == 'admin') {
-
                 return redirect()->route('/service-editcar/', ['carID' => $carID, 'serviceID'=>$serviceID]);
             } else {
                 return redirect('home');
