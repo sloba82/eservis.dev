@@ -51,7 +51,6 @@ class ServicesRepository implements CRUDInterface
 
     public function carInServiceOrCreateNewCar($request)
     {
-
         $carPlate = new CarRepository();
         $carID = $carPlate->plateHasUser($request['numberplate']);
         if ($carID) {

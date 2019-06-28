@@ -55,7 +55,6 @@ class CardReaderRepository
         $cardReader = new CardReader([
             'car_id' => 0,
             'card_data' => $this->rawCardData,
-
         ]);
         $cardReader->save();
     }

@@ -17,7 +17,6 @@ class AppoitmentController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-
     public function index()
     {
         $paginate = 10;
@@ -144,20 +143,6 @@ class AppoitmentController extends Controller
                 'data' => $data,
             ], 200);
         }
-    }
-
-    public function ajaxResoultPerPage($num)
-    {
-
-        dd($num);
-        /*
-          $paginate = $rezNum;
-          $allapointments = DB::table('appoitments')
-              ->orderByRaw('id DESC')
-              ->where('active', 1)
-              ->paginate($paginate);
-
-          return view('admin.appointment.index', compact('allapointments'));*/
     }
 
 }

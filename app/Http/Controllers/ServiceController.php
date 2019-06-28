@@ -70,7 +70,6 @@ class ServiceController extends Controller
 
     public function serviceEditCar($carID, $serviceID , CarUserRepository $carUserRepository, ServicesRepository $servicesRepository, Request $request)
     {
-
         $carUserRepository->getById($carID);
         $carData =  $carUserRepository->userCarData('car', $carID);
         $carData['serviceData'] = $servicesRepository->getById($serviceID);

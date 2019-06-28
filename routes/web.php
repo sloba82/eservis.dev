@@ -18,27 +18,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::post('/appointmentsave', 'AppoitmentController@store');
-
-Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
-
-Route::resource('/appointment', 'AppoitmentController');
-
-Route::get('/appointment-table/{rezNum}', 'AppoitmentController@resoultPerPage');
-Route::get('/appointment/ajaxResoultPerPage/{num}', 'AppoitmentController@ajaxResoultPerPage');
-
-/*Route::middleware(['auth', 'roles:admin'])->group(function () {*/
-   /* Route::get('/appoitment/showAll', 'AppoitmentController@showAll');*/
- /*   Route::get('/appoitment/showSingle/{id}', 'AppoitmentController@show');
-    Route::post('/appoitment/update/{id}', 'AppoitmentController@update');
-    Route::get('/appoitment/destroy/{id}', 'AppoitmentController@destroy');
-    Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');*/
-
-  /*  Route::resource('/appoitment', 'AppoitmentController');*/
 
 
-
-/*});*/
+Route::middleware(['auth', 'roles:admin'])->group(function () {
+    Route::post('/appointmentsave', 'AppoitmentController@store');
+    Route::post('/appoitment/ajaxConfirm', 'AppoitmentController@ajaxConfirm');
+    Route::resource('/appointment', 'AppoitmentController');
+    Route::get('/appointment-table/{rezNum}', 'AppoitmentController@resoultPerPage');
+});
 
 Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
     Route::get('/service', function () {
@@ -53,10 +40,7 @@ Route::middleware(['auth', 'roles:admin,serviceman' ])->group(function () {
 
     Route::get('/service-editcar/carID/{carID}/serviceID/{serviceID}', [
         'uses'=>'ServiceController@serviceEditCar'
-
     ]);
-
-
 });
 
 
